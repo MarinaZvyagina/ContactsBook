@@ -7,15 +7,23 @@
 //
 
 #import "CBAPathFileJsonDataBase.h"
+#import "CBAJsonDataBase.h"
 
 @implementation CBAPathFileJsonDataBase
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(CBAContactList *)getContacts {
+    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contacts" ofType:@"json"];
+    NSData *JSONData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:nil];
+    
+    NSArray * fields = @[
+                         @"name",
+                         @"surname",
+                         @"phone",
+                         @"email",
+                         @""
+                         ];
+    
+    return [[CBAJsonDataBase new] getContacts:JSONData forFields:fields];
 }
-*/
 
 @end

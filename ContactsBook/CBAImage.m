@@ -10,12 +10,11 @@
 
 @implementation CBAImage
 
-/*
-// Only override drawRect: if you perform custom drawing.
-// An empty implementation adversely affects performance during animation.
-- (void)drawRect:(CGRect)rect {
-    // Drawing code
+-(instancetype) initWithURL: (NSURL *)url {
+    self = [super init];
+    CIImage * im = [[CIImage alloc] initWithContentsOfURL:url];
+    self.image = [[UIImage alloc] initWithCIImage:im scale:1.0 orientation:UIImageOrientationUp];
+    return self;
 }
-*/
 
 @end

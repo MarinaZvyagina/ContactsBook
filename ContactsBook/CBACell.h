@@ -7,11 +7,13 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBAContact.h"
+
+extern NSString *const CBACellIdentifier;
 
 @interface CBACell : UITableViewCell
-//@property (nonatomic, strong) UILabel * Name;
-//@property (nonatomic, strong) UILabel * Surname;
-//@property (nonatomic, strong) UIButton * Info;
-//@property (nonatomic, strong) NSString *
+
+- (instancetype)initWithStyle:(UITableViewCellStyle)style reuseIdentifier:(NSString *)reuseIdentifier;
 -(instancetype)initWithName: (NSString *) name AndSurname: (NSString *)surname andURL: (NSString *)url;
+- (void)addContact:(CBAContact *)contact;
 @end

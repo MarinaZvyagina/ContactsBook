@@ -9,6 +9,6 @@
 #import <Foundation/Foundation.h>
 #import "CBADataBaseDriver.h"
 
-@interface CBAJsonDataBase : NSObject <CBADataBaseDriver>
--(CBAContactList *)getContacts;
+@interface CBAJsonDataBase : NSObject
+-(CBAContactList *)getContacts: (NSData *)json forFields:(NSArray<NSString *>*)fields;
 @end

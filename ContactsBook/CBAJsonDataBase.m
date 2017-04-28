@@ -12,35 +12,36 @@
 
 @implementation CBAJsonDataBase
 
--(CBAContactList *)getContacts {
-    
-    NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contacts" ofType:@"json"];
-    NSData *JSONData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:nil];
-    NSDictionary * JSONObject = [NSJSONSerialization JSONObjectWithData:JSONData options:0 error:nil];
-    NSDictionary * contacts = [JSONObject objectForKey:@"contacts"];
-    
-    CBAContact* (^createContact)(NSString *, NSString *, NSString *, NSString *);
+-(CBAContactList *)getContacts: (NSData *)json forFields:(NSArray<NSString *>*)fields {
+
+    NSDictionary * JSONObject = [NSJSONSerialization JSONObjectWithData:json options:0 error:nil];
+    NSDictionary * contacts = [JSONObject objectForKey:@"response"];
+
+    CBAContact* (^createContact)(NSString *, NSString *, NSString *, NSString *, NSString *);
     createContact = ^CBAContact*(NSString *name,
-                                NSString *surname,
-                                NSString *phone,
-                                NSString *email) {
+                                 NSString *surname,
+                                 NSString *phone,
+                                 NSString *email,
+                                 NSString *url) {
         CBAContact *contact = [CBAContact new];
         contact.name = name;
         contact.surname = surname;
         contact.phone = phone;
         contact.email = email;
+        contact.urlForPhoto = url;
         return contact;
     };
     
     NSMutableArray *resultContacts = [[NSMutableArray alloc] initWithCapacity:4];
     
     for (NSDictionary *contact in contacts) {
-        NSString *name = [contact objectForKey:@"name"];
-         NSString *surname = [contact objectForKey:@"surname"];
-         NSString *phone = [contact objectForKey:@"phone"];
-         NSString *email = [contact objectForKey:@"email"];
+        NSString *name = [contact objectForKey:fields[0]];
+         NSString *surname = [contact objectForKey:fields[1]];
+        NSString *phone = [contact objectForKey:fields[2]];
+         NSString *email = [contact objectForKey:fields[3]];
+         NSString *url = [contact objectForKey:fields[4]];
         
-        [resultContacts addObject:createContact(name,surname,phone,email)];
+        [resultContacts addObject:createContact(name,surname,phone,email,url)];
     }
 
     NSArray * result = resultContacts;

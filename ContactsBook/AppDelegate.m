@@ -7,6 +7,7 @@
 //
 
 #import "AppDelegate.h"
+#import "VKVMainViewController.h"
 
 @interface AppDelegate ()
 
@@ -16,7 +17,15 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
-    // Override point for customization after application launch.
+    UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
+    
+    VKVMainViewController *mainVC=[[VKVMainViewController alloc] init];
+    
+    window.rootViewController = mainVC;
+    
+    self.window = window;
+    [window makeKeyAndVisible];
+    
     return YES;
 }
 

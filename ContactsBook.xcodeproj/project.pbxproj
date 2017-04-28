@@ -14,6 +14,18 @@
 		0489EAAD1EAFB03400BB4820 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 0489EAAC1EAFB03400BB4820 /* Assets.xcassets */; };
 		0489EAB01EAFB03400BB4820 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 0489EAAE1EAFB03400BB4820 /* LaunchScreen.storyboard */; };
 		0489EABB1EAFB03400BB4820 /* ContactsBookTests.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EABA1EAFB03400BB4820 /* ContactsBookTests.m */; };
+		0489EAC61EAFB0C800BB4820 /* Masonry.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 0489EAC51EAFB0C800BB4820 /* Masonry.framework */; };
+		0489EAC71EAFB0C800BB4820 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0489EAC51EAFB0C800BB4820 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		0489EACB1EAFB51B00BB4820 /* CBACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACA1EAFB51B00BB4820 /* CBACell.m */; };
+		0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACD1EAFCC5200BB4820 /* DetailInformation.m */; };
+		14CD7F1C1EB2533200A460D8 /* CBAContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F151EB2533200A460D8 /* CBAContact.m */; };
+		14CD7F1D1EB2533200A460D8 /* CBAContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F171EB2533200A460D8 /* CBAContactList.m */; };
+		14CD7F1E1EB2533200A460D8 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CD7F181EB2533200A460D8 /* contacts.json */; };
+		14CD7F1F1EB2533200A460D8 /* CBAJsonDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F1B1EB2533200A460D8 /* CBAJsonDataBase.m */; };
+		14CD7F301EB26DC100A460D8 /* CBANetworkDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F2F1EB26DC100A460D8 /* CBANetworkDataBase.m */; };
+		14CD7F331EB271EC00A460D8 /* VKVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F321EB271EC00A460D8 /* VKVMainViewController.m */; };
+		14CD7F371EB2780200A460D8 /* CBAImage.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F361EB2780200A460D8 /* CBAImage.m */; };
+		14CD7F3D1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F3C1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -25,6 +37,20 @@
 			remoteInfo = ContactsBook;
 		};
 /* End PBXContainerItemProxy section */
+
+/* Begin PBXCopyFilesBuildPhase section */
+		0489EAC81EAFB0C800BB4820 /* Embed Frameworks */ = {
+			isa = PBXCopyFilesBuildPhase;
+			buildActionMask = 2147483647;
+			dstPath = "";
+			dstSubfolderSpec = 10;
+			files = (
+				0489EAC71EAFB0C800BB4820 /* Masonry.framework in Embed Frameworks */,
+			);
+			name = "Embed Frameworks";
+			runOnlyForDeploymentPostprocessing = 0;
+		};
+/* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
 		0489EA9D1EAFB03400BB4820 /* ContactsBook.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = ContactsBook.app; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -40,6 +66,27 @@
 		0489EAB61EAFB03400BB4820 /* ContactsBookTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = ContactsBookTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		0489EABA1EAFB03400BB4820 /* ContactsBookTests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ContactsBookTests.m; sourceTree = "<group>"; };
 		0489EABC1EAFB03400BB4820 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		0489EAC51EAFB0C800BB4820 /* Masonry.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Masonry.framework; sourceTree = "<group>"; };
+		0489EAC91EAFB51B00BB4820 /* CBACell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBACell.h; sourceTree = "<group>"; };
+		0489EACA1EAFB51B00BB4820 /* CBACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBACell.m; sourceTree = "<group>"; };
+		0489EACC1EAFCC5200BB4820 /* DetailInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInformation.h; sourceTree = "<group>"; };
+		0489EACD1EAFCC5200BB4820 /* DetailInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInformation.m; sourceTree = "<group>"; };
+		14CD7F141EB2533200A460D8 /* CBAContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAContact.h; sourceTree = "<group>"; };
+		14CD7F151EB2533200A460D8 /* CBAContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAContact.m; sourceTree = "<group>"; };
+		14CD7F161EB2533200A460D8 /* CBAContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAContactList.h; sourceTree = "<group>"; };
+		14CD7F171EB2533200A460D8 /* CBAContactList.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAContactList.m; sourceTree = "<group>"; };
+		14CD7F181EB2533200A460D8 /* contacts.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = contacts.json; sourceTree = "<group>"; };
+		14CD7F191EB2533200A460D8 /* CBADataBaseDriver.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBADataBaseDriver.h; sourceTree = "<group>"; };
+		14CD7F1A1EB2533200A460D8 /* CBAJsonDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAJsonDataBase.h; sourceTree = "<group>"; };
+		14CD7F1B1EB2533200A460D8 /* CBAJsonDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAJsonDataBase.m; sourceTree = "<group>"; };
+		14CD7F2E1EB26DC100A460D8 /* CBANetworkDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBANetworkDataBase.h; sourceTree = "<group>"; };
+		14CD7F2F1EB26DC100A460D8 /* CBANetworkDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBANetworkDataBase.m; sourceTree = "<group>"; };
+		14CD7F311EB271EC00A460D8 /* VKVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKVMainViewController.h; sourceTree = "<group>"; };
+		14CD7F321EB271EC00A460D8 /* VKVMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKVMainViewController.m; sourceTree = "<group>"; };
+		14CD7F351EB2780200A460D8 /* CBAImage.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAImage.h; sourceTree = "<group>"; };
+		14CD7F361EB2780200A460D8 /* CBAImage.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAImage.m; sourceTree = "<group>"; };
+		14CD7F3B1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAPathFileJsonDataBase.h; sourceTree = "<group>"; };
+		14CD7F3C1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAPathFileJsonDataBase.m; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -47,6 +94,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0489EAC61EAFB0C800BB4820 /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -66,6 +114,7 @@
 				0489EA9F1EAFB03400BB4820 /* ContactsBook */,
 				0489EAB91EAFB03400BB4820 /* ContactsBookTests */,
 				0489EA9E1EAFB03400BB4820 /* Products */,
+				0489EAC51EAFB0C800BB4820 /* Masonry.framework */,
 			);
 			sourceTree = "<group>";
 		};
@@ -81,10 +130,8 @@
 		0489EA9F1EAFB03400BB4820 /* ContactsBook */ = {
 			isa = PBXGroup;
 			children = (
-				0489EAA31EAFB03400BB4820 /* AppDelegate.h */,
-				0489EAA41EAFB03400BB4820 /* AppDelegate.m */,
-				0489EAA61EAFB03400BB4820 /* ViewController.h */,
-				0489EAA71EAFB03400BB4820 /* ViewController.m */,
+				14CD7F231EB2536300A460D8 /* Model */,
+				14CD7F3A1EB2AACD00A460D8 /* View */,
 				0489EAA91EAFB03400BB4820 /* Main.storyboard */,
 				0489EAAC1EAFB03400BB4820 /* Assets.xcassets */,
 				0489EAAE1EAFB03400BB4820 /* LaunchScreen.storyboard */,
@@ -111,6 +158,100 @@
 			path = ContactsBookTests;
 			sourceTree = "<group>";
 		};
+		14CD7EC01EB0244D00A460D8 /* Navigation */ = {
+			isa = PBXGroup;
+			children = (
+				0489EAA61EAFB03400BB4820 /* ViewController.h */,
+				0489EAA71EAFB03400BB4820 /* ViewController.m */,
+				14CD7F391EB2AAA100A460D8 /* VK web page */,
+			);
+			name = Navigation;
+			sourceTree = "<group>";
+		};
+		14CD7F201EB2533900A460D8 /* Contact */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F141EB2533200A460D8 /* CBAContact.h */,
+				14CD7F151EB2533200A460D8 /* CBAContact.m */,
+			);
+			name = Contact;
+			sourceTree = "<group>";
+		};
+		14CD7F211EB2534400A460D8 /* ContactList */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F161EB2533200A460D8 /* CBAContactList.h */,
+				14CD7F171EB2533200A460D8 /* CBAContactList.m */,
+			);
+			name = ContactList;
+			sourceTree = "<group>";
+		};
+		14CD7F221EB2535000A460D8 /* DataBase */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F181EB2533200A460D8 /* contacts.json */,
+				14CD7F191EB2533200A460D8 /* CBADataBaseDriver.h */,
+				14CD7F1A1EB2533200A460D8 /* CBAJsonDataBase.h */,
+				14CD7F1B1EB2533200A460D8 /* CBAJsonDataBase.m */,
+				14CD7F2E1EB26DC100A460D8 /* CBANetworkDataBase.h */,
+				14CD7F2F1EB26DC100A460D8 /* CBANetworkDataBase.m */,
+				14CD7F3B1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.h */,
+				14CD7F3C1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m */,
+			);
+			name = DataBase;
+			sourceTree = "<group>";
+		};
+		14CD7F231EB2536300A460D8 /* Model */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F201EB2533900A460D8 /* Contact */,
+				14CD7F211EB2534400A460D8 /* ContactList */,
+				14CD7F221EB2535000A460D8 /* DataBase */,
+			);
+			name = Model;
+			sourceTree = "<group>";
+		};
+		14CD7F341EB277CF00A460D8 /* Cell */ = {
+			isa = PBXGroup;
+			children = (
+				0489EAC91EAFB51B00BB4820 /* CBACell.h */,
+				0489EACA1EAFB51B00BB4820 /* CBACell.m */,
+				14CD7F351EB2780200A460D8 /* CBAImage.h */,
+				14CD7F361EB2780200A460D8 /* CBAImage.m */,
+			);
+			name = Cell;
+			sourceTree = "<group>";
+		};
+		14CD7F381EB2AA7F00A460D8 /* Detail Information */ = {
+			isa = PBXGroup;
+			children = (
+				0489EACC1EAFCC5200BB4820 /* DetailInformation.h */,
+				0489EACD1EAFCC5200BB4820 /* DetailInformation.m */,
+			);
+			name = "Detail Information";
+			sourceTree = "<group>";
+		};
+		14CD7F391EB2AAA100A460D8 /* VK web page */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F311EB271EC00A460D8 /* VKVMainViewController.h */,
+				14CD7F321EB271EC00A460D8 /* VKVMainViewController.m */,
+			);
+			name = "VK web page";
+			sourceTree = "<group>";
+		};
+		14CD7F3A1EB2AACD00A460D8 /* View */ = {
+			isa = PBXGroup;
+			children = (
+				0489EAA31EAFB03400BB4820 /* AppDelegate.h */,
+				0489EAA41EAFB03400BB4820 /* AppDelegate.m */,
+				14CD7EC01EB0244D00A460D8 /* Navigation */,
+				14CD7F341EB277CF00A460D8 /* Cell */,
+				14CD7F381EB2AA7F00A460D8 /* Detail Information */,
+			);
+			name = View;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -121,6 +262,7 @@
 				0489EA991EAFB03400BB4820 /* Sources */,
 				0489EA9A1EAFB03400BB4820 /* Frameworks */,
 				0489EA9B1EAFB03400BB4820 /* Resources */,
+				0489EAC81EAFB0C800BB4820 /* Embed Frameworks */,
 			);
 			buildRules = (
 			);
@@ -193,6 +335,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				14CD7F1E1EB2533200A460D8 /* contacts.json in Resources */,
 				0489EAB01EAFB03400BB4820 /* LaunchScreen.storyboard in Resources */,
 				0489EAAD1EAFB03400BB4820 /* Assets.xcassets in Resources */,
 				0489EAAB1EAFB03400BB4820 /* Main.storyboard in Resources */,
@@ -214,7 +357,16 @@
 			buildActionMask = 2147483647;
 			files = (
 				0489EAA81EAFB03400BB4820 /* ViewController.m in Sources */,
+				14CD7F1F1EB2533200A460D8 /* CBAJsonDataBase.m in Sources */,
+				14CD7F371EB2780200A460D8 /* CBAImage.m in Sources */,
+				14CD7F1D1EB2533200A460D8 /* CBAContactList.m in Sources */,
+				0489EACB1EAFB51B00BB4820 /* CBACell.m in Sources */,
 				0489EAA51EAFB03400BB4820 /* AppDelegate.m in Sources */,
+				14CD7F331EB271EC00A460D8 /* VKVMainViewController.m in Sources */,
+				14CD7F1C1EB2533200A460D8 /* CBAContact.m in Sources */,
+				14CD7F301EB26DC100A460D8 /* CBANetworkDataBase.m in Sources */,
+				0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */,
+				14CD7F3D1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m in Sources */,
 				0489EAA21EAFB03400BB4820 /* main.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -351,6 +503,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ContactsBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.zvyaginaMarina.ContactsBook;
@@ -362,6 +518,10 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				FRAMEWORK_SEARCH_PATHS = (
+					"$(inherited)",
+					"$(PROJECT_DIR)",
+				);
 				INFOPLIST_FILE = ContactsBook/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.zvyaginaMarina.ContactsBook;
@@ -412,6 +572,7 @@
 				0489EAC11EAFB03400BB4820 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 		0489EAC21EAFB03400BB4820 /* Build configuration list for PBXNativeTarget "ContactsBookTests" */ = {
 			isa = XCConfigurationList;
@@ -420,6 +581,7 @@
 				0489EAC41EAFB03400BB4820 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
+			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};

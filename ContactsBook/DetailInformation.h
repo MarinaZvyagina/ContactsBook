@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 
-@interface DetailInformation : UIView
+@interface DetailInformation : UIViewController
 
+-(instancetype)initWithName: (NSString *) name surname: (NSString *)surname andPhone: (NSString *) phone andUrl: (NSString *)url;
 @end

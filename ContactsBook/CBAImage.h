@@ -10,4 +10,6 @@
 
 @interface CBAImage : UIImageView
 
+-(instancetype) initWithURL: (NSURL *)url;
+
 @end

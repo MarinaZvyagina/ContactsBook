@@ -7,7 +7,8 @@
 //
 
 #import <Foundation/Foundation.h>
+#import "CBADataBaseDriver.h"
 
-@interface CBANetworkDataBase : NSObject
+@interface CBANetworkDataBase : NSObject <CBADataBaseDriver>
 
 @end
