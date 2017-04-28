@@ -1,0 +1,28 @@
+{
+	"contacts" : [
+	 {
+		"name" : "Bob",
+		"surname" : "Marley",
+		"phone" : "8(985)-543-03-23",
+		"email" : "sun@list.ru"
+	 },
+	 {
+		"name" : "Liza",
+		"surname" : "Simpson",
+		"phone" : "8(423)-456-64-11",
+		"email" : "liza111@simpsons.com"
+	 },
+	 {
+		"name" : "Fin",
+		"surname" : "Human",
+		"phone" : "8(222)-431-00-21",
+		"email" : "jake@my.ua"
+	 },
+	 {
+		"name" : "Cat",
+		"surname" : "Cattish",
+		"phone" : "8(999)-888-77-66",
+		"email" : "cats@hate.all"
+	 }
+	]
+}
