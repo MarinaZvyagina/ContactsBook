@@ -18,6 +18,9 @@
 		0489EAC71EAFB0C800BB4820 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0489EAC51EAFB0C800BB4820 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0489EACB1EAFB51B00BB4820 /* CBACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACA1EAFB51B00BB4820 /* CBACell.m */; };
 		0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACD1EAFCC5200BB4820 /* DetailInformation.m */; };
+		1482A8D91EBB190E002A0010 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1482A8D71EBB190E002A0010 /* AddressBook.framework */; };
+		1482A8DA1EBB190E002A0010 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1482A8D81EBB190E002A0010 /* AddressBookUI.framework */; };
+		1482A8DD1EBB1A74002A0010 /* CBAContactsBookDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482A8DC1EBB1A74002A0010 /* CBAContactsBookDataBase.m */; };
 		14CD7F1C1EB2533200A460D8 /* CBAContact.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F151EB2533200A460D8 /* CBAContact.m */; };
 		14CD7F1D1EB2533200A460D8 /* CBAContactList.m in Sources */ = {isa = PBXBuildFile; fileRef = 14CD7F171EB2533200A460D8 /* CBAContactList.m */; };
 		14CD7F1E1EB2533200A460D8 /* contacts.json in Resources */ = {isa = PBXBuildFile; fileRef = 14CD7F181EB2533200A460D8 /* contacts.json */; };
@@ -71,6 +74,10 @@
 		0489EACA1EAFB51B00BB4820 /* CBACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBACell.m; sourceTree = "<group>"; };
 		0489EACC1EAFCC5200BB4820 /* DetailInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInformation.h; sourceTree = "<group>"; };
 		0489EACD1EAFCC5200BB4820 /* DetailInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInformation.m; sourceTree = "<group>"; };
+		1482A8D71EBB190E002A0010 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
+		1482A8D81EBB190E002A0010 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
+		1482A8DB1EBB1A74002A0010 /* CBAContactsBookDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAContactsBookDataBase.h; sourceTree = "<group>"; };
+		1482A8DC1EBB1A74002A0010 /* CBAContactsBookDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAContactsBookDataBase.m; sourceTree = "<group>"; };
 		14CD7F141EB2533200A460D8 /* CBAContact.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAContact.h; sourceTree = "<group>"; };
 		14CD7F151EB2533200A460D8 /* CBAContact.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAContact.m; sourceTree = "<group>"; };
 		14CD7F161EB2533200A460D8 /* CBAContactList.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAContactList.h; sourceTree = "<group>"; };
@@ -94,6 +101,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1482A8D91EBB190E002A0010 /* AddressBook.framework in Frameworks */,
+				1482A8DA1EBB190E002A0010 /* AddressBookUI.framework in Frameworks */,
 				0489EAC61EAFB0C800BB4820 /* Masonry.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -115,6 +124,7 @@
 				0489EAB91EAFB03400BB4820 /* ContactsBookTests */,
 				0489EA9E1EAFB03400BB4820 /* Products */,
 				0489EAC51EAFB0C800BB4820 /* Masonry.framework */,
+				1482A8D61EBB190D002A0010 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -158,6 +168,15 @@
 			path = ContactsBookTests;
 			sourceTree = "<group>";
 		};
+		1482A8D61EBB190D002A0010 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1482A8D71EBB190E002A0010 /* AddressBook.framework */,
+				1482A8D81EBB190E002A0010 /* AddressBookUI.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		14CD7EC01EB0244D00A460D8 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
@@ -197,6 +216,8 @@
 				14CD7F2F1EB26DC100A460D8 /* CBANetworkDataBase.m */,
 				14CD7F3B1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.h */,
 				14CD7F3C1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m */,
+				1482A8DB1EBB1A74002A0010 /* CBAContactsBookDataBase.h */,
+				1482A8DC1EBB1A74002A0010 /* CBAContactsBookDataBase.m */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -302,6 +323,7 @@
 				TargetAttributes = {
 					0489EA9C1EAFB03400BB4820 = {
 						CreatedOnToolsVersion = 8.2.1;
+						DevelopmentTeam = Q4LCPSKEPX;
 						ProvisioningStyle = Automatic;
 					};
 					0489EAB51EAFB03400BB4820 = {
@@ -358,6 +380,7 @@
 			files = (
 				0489EAA81EAFB03400BB4820 /* ViewController.m in Sources */,
 				14CD7F1F1EB2533200A460D8 /* CBAJsonDataBase.m in Sources */,
+				1482A8DD1EBB1A74002A0010 /* CBAContactsBookDataBase.m in Sources */,
 				14CD7F371EB2780200A460D8 /* CBAImage.m in Sources */,
 				14CD7F1D1EB2533200A460D8 /* CBAContactList.m in Sources */,
 				0489EACB1EAFB51B00BB4820 /* CBACell.m in Sources */,
@@ -503,11 +526,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q4LCPSKEPX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ContactsBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.zvyaginaMarina.ContactsBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -518,11 +543,13 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				DEVELOPMENT_TEAM = Q4LCPSKEPX;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)",
 				);
 				INFOPLIST_FILE = ContactsBook/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
 				PRODUCT_BUNDLE_IDENTIFIER = ru.zvyaginaMarina.ContactsBook;
 				PRODUCT_NAME = "$(TARGET_NAME)";

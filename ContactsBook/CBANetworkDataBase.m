@@ -19,16 +19,29 @@
     NSString*url=[@"https://api.vk.com/method/friends.get?user_id=14229717&fields=nickname,contacts,photo_100&" stringByAppendingString:accessToken];
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
-    NSData *responseData = [NSURLConnection sendSynchronousRequest:nsurlRequest returningResponse:nil error:nil];
+    __block NSData *responseData = [NSURLConnection sendSynchronousRequest:nsurlRequest returningResponse:nil error:nil];
+
     
-    
+/*    NSURLSession *session = [NSURLSession sharedSession];
+    [[session dataTaskWithRequest:nsurlRequest
+                completionHandler:^(NSData *data,
+                                    NSURLResponse *response,
+                                    NSError *error) {
+                    
+                    dispatch_sync(dispatch_get_main_queue(), ^{
+                        //UPDATE UI
+                        responseData = data;
+                    });
+                    
+                }] resume];
+*/
     NSArray * fields = @[
                          @"first_name",
                          @"last_name",
                          @"home_phone",
                          @"nickname",
                          @"photo_100"
-                         ];
+                         ]; 
     
     return [[CBAJsonDataBase new] getContacts:responseData forFields:fields];
 }

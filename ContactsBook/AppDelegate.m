@@ -8,6 +8,7 @@
 
 #import "AppDelegate.h"
 #import "VKVMainViewController.h"
+#import "CBAContactsBookDataBase.h"
 
 @interface AppDelegate ()
 
@@ -17,6 +18,9 @@
 
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
+    
+    [CBAContactsBookDataBase getContactsWithAddressBook];
+    
     UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
     VKVMainViewController *mainVC=[[VKVMainViewController alloc] init];
