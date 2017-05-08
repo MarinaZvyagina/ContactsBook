@@ -13,6 +13,7 @@
 #import "CBADataBaseDriver.h"
 #import "CBANetworkDataBase.h"
 #import "CBAPathFileJsonDataBase.h"
+#import "CBAContactsBookDataBase.h"
 #import "CBAContact.h"
 @import Masonry;
 
@@ -40,7 +41,8 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 
-    self.contactManager = [CBANetworkDataBase new];
+    /* VK */
+    self.contactManager = [CBAContactsBookDataBase new];
     /* You shoud use it for work with local json file */
     //self.contactManager = [CBAPathFileJsonDataBase new];
     

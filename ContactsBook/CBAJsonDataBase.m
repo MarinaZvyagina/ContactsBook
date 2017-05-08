@@ -36,10 +36,10 @@
     
     for (NSDictionary *contact in contacts) {
         NSString *name = [contact objectForKey:fields[0]];
-         NSString *surname = [contact objectForKey:fields[1]];
+        NSString *surname = [contact objectForKey:fields[1]];
         NSString *phone = [contact objectForKey:fields[2]];
-         NSString *email = [contact objectForKey:fields[3]];
-         NSString *url = [contact objectForKey:fields[4]];
+        NSString *email = [contact objectForKey:fields[3]];
+        NSString *url = [contact objectForKey:fields[4]];
         
         [resultContacts addObject:createContact(name,surname,phone,email,url)];
     }

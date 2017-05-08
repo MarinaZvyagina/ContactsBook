@@ -8,74 +8,102 @@
 
 #import "CBAContactsBookDataBase.h"
 #import "CBAContactList.h"
+#import "CBAContact.h"
 #import <AddressBook/ABAddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
 
 @implementation CBAContactsBookDataBase
 
 -(CBAContactList *)getContacts {
-    
-    
-  //  self.getContactsWithAddressBook;
-    return [CBAContactList new];
+
+    return [[CBAContactList alloc] initWithArray:[self getContactsWithAddressBook]];
+
 }
 
-
-
-
-
-+ (void)getContactsWithAddressBook {
+-(NSMutableArray *)getContactsWithAddressBook{
     
-    ABAddressBookRef addressBook = ABAddressBookCreate();//WithOptions(NULL, nil);
-    
-    
-    
-    NSMutableArray * contactList = [[NSMutableArray alloc] init];
-    
-    CFArrayRef allPeople = ABAddressBookCopyArrayOfAllPeople(addressBook);
-    CFIndex nPeople = ABAddressBookGetPersonCount(addressBook);
-    
-    for (int i=0;i < nPeople;i++) {
-        NSMutableDictionary *dOfPerson=[NSMutableDictionary dictionary];
-        
-        ABRecordRef ref = CFArrayGetValueAtIndex(allPeople,i);
-        
-        //For username and surname
-        ABMultiValueRef phones =(__bridge ABMultiValueRef)((__bridge NSString*)ABRecordCopyValue(ref, kABPersonPhoneProperty));
-        
-        CFStringRef firstName, lastName;
-        firstName = ABRecordCopyValue(ref, kABPersonFirstNameProperty);
-        lastName  = ABRecordCopyValue(ref, kABPersonLastNameProperty);
-        [dOfPerson setObject:[NSString stringWithFormat:@"%@ %@", firstName, lastName] forKey:@"name"];
-        
-        //For Email ids
-        ABMutableMultiValueRef eMail  = ABRecordCopyValue(ref, kABPersonEmailProperty);
-        if(ABMultiValueGetCount(eMail) > 0) {
-            [dOfPerson setObject:(__bridge NSString *)ABMultiValueCopyValueAtIndex(eMail, 0) forKey:@"email"];
-            
-        }
-        
-        //For Phone number
-        NSString* mobileLabel;
-        
-        for(CFIndex j = 0; j < ABMultiValueGetCount(phones); j++) {
-            mobileLabel = (__bridge NSString*)ABMultiValueCopyLabelAtIndex(phones, j);
-            if([mobileLabel isEqualToString:(NSString *)kABPersonPhoneMobileLabel])
-            {
-                [dOfPerson setObject:(__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, j) forKey:@"phone"];
+    NSMutableArray *finalContactList = [[NSMutableArray alloc] init];
+    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
+    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+        ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
+            if (granted) {
+                // First time access has been granted, add the contact
+                [finalContactList addObject:[self getContacts]];
+            } else {
+                // User denied access
+                // Display an alert telling user the contact could not be added
             }
-            else if ([mobileLabel isEqualToString:(NSString*)kABPersonPhoneIPhoneLabel])
-            {
-                [dOfPerson setObject:(__bridge NSString*)ABMultiValueCopyValueAtIndex(phones, j) forKey:@"phone"];
-                break ;
-            }
-            
-        }
-        [contactList addObject:dOfPerson];
-        
+        });
     }
-    NSLog(@"Contacts = %@",contactList);
+    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+        // The user has previously given access, add the contact
+        finalContactList = [self getCBContacts];
+    }
+    else {
+        // The user has previously denied access
+        // Send an alert telling user to change privacy setting in settings app
+    }
+    return finalContactList;
+    
 }
+
+-(NSMutableArray *)getCBContacts
+{
+    CBAContact* (^createContact)(NSString *, NSString *, NSString *, NSString *, NSString *);
+    createContact = ^CBAContact*(NSString *name,
+                                 NSString *surname,
+                                 NSString *phone,
+                                 NSString *email,
+                                 NSString *url) {
+        CBAContact *contact = [CBAContact new];
+        contact.name = name;
+        contact.surname = surname;
+        contact.phone = phone;
+        contact.email = email;
+        contact.urlForPhoto = url;
+        return contact;
+    };
+    
+    
+    
+    NSMutableArray *newContactArray = [[NSMutableArray alloc]init];
+    ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
+    NSArray *arrayOfAllPeople1 = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeople(addressBook);
+    NSUInteger peopleCounter = 0;
+    for (peopleCounter = 0;peopleCounter < [arrayOfAllPeople1 count]; peopleCounter++)
+    {
+        ABRecordRef thisPerson = (__bridge ABRecordRef) [arrayOfAllPeople1 objectAtIndex:peopleCounter];
+  //      NSString *name = (__bridge NSString *) ABRecordCopyCompositeName(thisPerson);
+        NSString *name = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonFirstNameProperty));
+        NSString *surname = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonLastNameProperty));
+        NSString *numbers = @"";
+        ABMultiValueRef number = ABRecordCopyValue(thisPerson, kABPersonPhoneProperty);
+        for (NSUInteger numberCounter = 0; numberCounter < ABMultiValueGetCount(number); numberCounter++)
+        {
+            NSString *currentPhoneNumber = (__bridge NSString *)ABMultiValueCopyValueAtIndex(number, numberCounter);
+            if ([currentPhoneNumber length]!=0)
+            {
+                numbers = [numbers stringByAppendingString:[currentPhoneNumber stringByAppendingString:@" "]];
+            }
+            
+        }
+        NSString *mails = @"";
+        ABMultiValueRef email = ABRecordCopyValue(thisPerson, kABPersonEmailProperty);
+        for (NSUInteger emailCounter = 0; emailCounter < ABMultiValueGetCount(email); emailCounter++)
+        {
+            NSString *currentEmail = (__bridge NSString *)ABMultiValueCopyValueAtIndex(email, emailCounter);
+            if ([currentEmail length]!=0)
+            {
+                mails = [mails stringByAppendingString:[currentEmail stringByAppendingString:@" "]];
+            }
+            
+        }
+        
+        [newContactArray addObject:createContact(name,surname,numbers,mails,@"")];
+    }
+    return newContactArray;
+}
+
 
 
 @end

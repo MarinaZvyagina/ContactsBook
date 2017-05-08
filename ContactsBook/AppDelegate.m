@@ -19,8 +19,6 @@
 
 - (BOOL)application:(UIApplication *)application didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     
-    [CBAContactsBookDataBase getContactsWithAddressBook];
-    
     UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
     
     VKVMainViewController *mainVC=[[VKVMainViewController alloc] init];
@@ -31,6 +29,7 @@
     [window makeKeyAndVisible];
     
     return YES;
+
 }
 
 

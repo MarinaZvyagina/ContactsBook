@@ -20,21 +20,20 @@
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     
     __block NSData *responseData = [NSURLConnection sendSynchronousRequest:nsurlRequest returningResponse:nil error:nil];
-
     
-/*    NSURLSession *session = [NSURLSession sharedSession];
+    NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
+    NSURLSession *session = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
+
+
     [[session dataTaskWithRequest:nsurlRequest
                 completionHandler:^(NSData *data,
                                     NSURLResponse *response,
                                     NSError *error) {
-                    
-                    dispatch_sync(dispatch_get_main_queue(), ^{
-                        //UPDATE UI
+
                         responseData = data;
-                    });
-                    
+
                 }] resume];
-*/
+
     NSArray * fields = @[
                          @"first_name",
                          @"last_name",
