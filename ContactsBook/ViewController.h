@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBADataBaseDriver.h"
 
 @interface ViewController : UIViewController
-
-
++(void)updateContacts:(CBAContactList *)newContacts;
+-(instancetype) initWithContactManager:(id<CBADataBaseDriver>) contactManager;
 @end
 

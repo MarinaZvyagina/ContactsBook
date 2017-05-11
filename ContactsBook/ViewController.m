@@ -10,7 +10,6 @@
 #import "CBACell.h"
 #import "DetailInformation.h"
 #import "CBAContactList.h"
-#import "CBADataBaseDriver.h"
 #import "CBANetworkDataBase.h"
 #import "CBAPathFileJsonDataBase.h"
 #import "CBAContactsBookDataBase.h"
@@ -26,7 +25,24 @@
 
 @implementation ViewController
 
+static CBAContactList * staticContacts;
++ (CBAContactList *) staticContacts
+{ @synchronized(self) { return staticContacts; } }
++ (void) setstaticContacts:(CBAContactList *)val
+{ @synchronized(self)
+    { staticContacts = val; } }
+
+
+-(instancetype) initWithContactManager:(id<CBADataBaseDriver>) contactManager {
+    self = [super init];
+    if (self) {
+        self.contactManager = contactManager;
+    }
+    return self;
+}
+
 - (void)viewDidLoad {
+    staticContacts = [CBAContactList new];
     [super viewDidLoad];  
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView = [UITableView new];
@@ -41,17 +57,13 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 
-    /* VK */
-    self.contactManager = [CBAContactsBookDataBase new];
-    /* You shoud use it for work with local json file */
-    //self.contactManager = [CBAPathFileJsonDataBase new];
-    
-    self.contacts = [self.contactManager getContacts];
+    self.contacts = [self.contactManager getContacts:self.tableView];
+    staticContacts = self.contacts;
     [self.tableView registerClass:[CBACell class] forCellReuseIdentifier:CBACellIdentifier];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return self.contacts.count;
+    return staticContacts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -59,7 +71,7 @@
     if (cell == nil) {
         cell = [[CBACell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CBACellIdentifier];
     }
-    CBAContact * contact = [self.contacts objectAtIndexedSubscript:indexPath.row];
+    CBAContact * contact = [staticContacts objectAtIndexedSubscript:indexPath.row];
     [(CBACell *)cell addContact:contact];
     return cell;
 }
@@ -81,6 +93,9 @@
     return 50;
 }
 
++(void)updateContacts:(CBAContactList *)newContacts {
+    staticContacts = newContacts;
+}
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];

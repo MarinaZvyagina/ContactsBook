@@ -17,6 +17,7 @@ NSString *const CBACellIdentifier = @"CBACellIdentifier";
 @property (nonatomic, strong) UILabel * Name;
 @property (nonatomic, strong) UILabel * Surname;
 @property (nonatomic, strong) CBAImage * Info;
+@property (nonatomic, strong) UIImage * image;
 
 @end
 
@@ -70,6 +71,24 @@ NSString *const CBACellIdentifier = @"CBACellIdentifier";
     
 }
 
+-(void) loadImage: (NSString *) url {
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                   ^{
+                       NSURL *imageURL = [NSURL URLWithString:url];
+                       __block NSData *imageData;
+                       
+                       dispatch_sync(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0),
+                                     ^{
+                                         imageData = [NSData dataWithContentsOfURL:imageURL];
+                                         
+                                         
+                                         dispatch_sync(dispatch_get_main_queue(), ^{
+                                             self.Info.image = [UIImage imageWithData:imageData];
+                                         });
+                                     });
+                   });
+}
+
 -(instancetype)initWithName: (NSString *) name AndSurname: (NSString *)surname andURL: (NSString *)url  {
     self = [super init];
 
@@ -79,9 +98,9 @@ NSString *const CBACellIdentifier = @"CBACellIdentifier";
         // If local json file is chosen, my photo shows
         NSString * initUrl = url ? url : @"https://lh3.googleusercontent.com/-NmcPm_QhFzw/AAAAAAAAAAI/AAAAAAAAAAA/AHalGho6R0sfDXYGc7TOb35Svg_uk5h6Ug/mo/photo.jpg?sz=46";
         
-        self.Info = [[CBAImage alloc] initWithURL:[NSURL URLWithString:initUrl]];
+        [self loadImage:initUrl];
 
-        
+
         self.Name = [UILabel new];
         self.Surname = [UILabel new];
         
@@ -130,10 +149,7 @@ NSString *const CBACellIdentifier = @"CBACellIdentifier";
     self.Surname.text = contact.surname;
     
     NSString * initUrl = contact.urlForPhoto ? contact.urlForPhoto : @"https://lh3.googleusercontent.com/-NmcPm_QhFzw/AAAAAAAAAAI/AAAAAAAAAAA/AHalGho6R0sfDXYGc7TOb35Svg_uk5h6Ug/mo/photo.jpg?sz=46";
-    
-    NSURL * url = [NSURL URLWithString:initUrl];
-    CIImage * ciImage = [[CIImage alloc] initWithContentsOfURL:url];
-    self.Info.image = [[UIImage alloc] initWithCIImage:ciImage scale:1.0 orientation:UIImageOrientationUp];
+    [self loadImage:initUrl];
 }
 
 /*

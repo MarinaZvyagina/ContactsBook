@@ -14,7 +14,7 @@
 @implementation CBANetworkDataBase
 
 
--(CBAContactList *)getContacts {
+-(CBAContactList *)getContacts:(UITableView *) tableView {
     NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"VKAccessToken"];
     NSString*url=[@"https://api.vk.com/method/friends.get?user_id=14229717&fields=nickname,contacts,photo_100&" stringByAppendingString:accessToken];
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -32,6 +32,8 @@
 
                         responseData = data;
 
+                    
+                    
                 }] resume];
 
     NSArray * fields = @[

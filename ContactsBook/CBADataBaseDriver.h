@@ -7,11 +7,12 @@
 //
 
 #import <Foundation/Foundation.h>
+#import <UIKit/UIKit.h>
 @class CBAContactList;
 
 @protocol CBADataBaseDriver <NSObject>
 
 @required
--(CBAContactList *)getContacts ;
+-(CBAContactList *)getContacts:(UITableView *) tableView ;
 
 @end

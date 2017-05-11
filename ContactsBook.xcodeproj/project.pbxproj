@@ -18,6 +18,13 @@
 		0489EAC71EAFB0C800BB4820 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0489EAC51EAFB0C800BB4820 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0489EACB1EAFB51B00BB4820 /* CBACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACA1EAFB51B00BB4820 /* CBACell.m */; };
 		0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACD1EAFCC5200BB4820 /* DetailInformation.m */; };
+		1479E7DD1EC0F056008836FA /* CBAFacebookDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479E7DC1EC0F056008836FA /* CBAFacebookDataBase.m */; };
+		1479E7E21EC11DA7008836FA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1479E7DE1EC11DA7008836FA /* Bolts.framework */; };
+		1479E7E31EC11DA7008836FA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1479E7DF1EC11DA7008836FA /* FBSDKCoreKit.framework */; };
+		1479E7E41EC11DA7008836FA /* FBSDKLoginKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1479E7E01EC11DA7008836FA /* FBSDKLoginKit.framework */; };
+		1479E7E51EC11DA7008836FA /* FBSDKShareKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1479E7E11EC11DA7008836FA /* FBSDKShareKit.framework */; };
+		1479E7E81EC133FF008836FA /* CBAFaceBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479E7E71EC133FF008836FA /* CBAFaceBookViewController.m */; };
+		1479E7EC1EC137B4008836FA /* CBANavigation.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479E7EB1EC137B4008836FA /* CBANavigation.m */; };
 		1482A8D91EBB190E002A0010 /* AddressBook.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1482A8D71EBB190E002A0010 /* AddressBook.framework */; };
 		1482A8DA1EBB190E002A0010 /* AddressBookUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1482A8D81EBB190E002A0010 /* AddressBookUI.framework */; };
 		1482A8DD1EBB1A74002A0010 /* CBAContactsBookDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1482A8DC1EBB1A74002A0010 /* CBAContactsBookDataBase.m */; };
@@ -74,6 +81,16 @@
 		0489EACA1EAFB51B00BB4820 /* CBACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBACell.m; sourceTree = "<group>"; };
 		0489EACC1EAFCC5200BB4820 /* DetailInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInformation.h; sourceTree = "<group>"; };
 		0489EACD1EAFCC5200BB4820 /* DetailInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInformation.m; sourceTree = "<group>"; };
+		1479E7DB1EC0F056008836FA /* CBAFacebookDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAFacebookDataBase.h; sourceTree = "<group>"; };
+		1479E7DC1EC0F056008836FA /* CBAFacebookDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAFacebookDataBase.m; sourceTree = "<group>"; };
+		1479E7DE1EC11DA7008836FA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
+		1479E7DF1EC11DA7008836FA /* FBSDKCoreKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKCoreKit.framework; sourceTree = "<group>"; };
+		1479E7E01EC11DA7008836FA /* FBSDKLoginKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKLoginKit.framework; sourceTree = "<group>"; };
+		1479E7E11EC11DA7008836FA /* FBSDKShareKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = FBSDKShareKit.framework; sourceTree = "<group>"; };
+		1479E7E61EC133FF008836FA /* CBAFaceBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAFaceBookViewController.h; sourceTree = "<group>"; };
+		1479E7E71EC133FF008836FA /* CBAFaceBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAFaceBookViewController.m; sourceTree = "<group>"; };
+		1479E7EA1EC137B4008836FA /* CBANavigation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBANavigation.h; sourceTree = "<group>"; };
+		1479E7EB1EC137B4008836FA /* CBANavigation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBANavigation.m; sourceTree = "<group>"; };
 		1482A8D71EBB190E002A0010 /* AddressBook.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBook.framework; path = System/Library/Frameworks/AddressBook.framework; sourceTree = SDKROOT; };
 		1482A8D81EBB190E002A0010 /* AddressBookUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = AddressBookUI.framework; path = System/Library/Frameworks/AddressBookUI.framework; sourceTree = SDKROOT; };
 		1482A8DB1EBB1A74002A0010 /* CBAContactsBookDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAContactsBookDataBase.h; sourceTree = "<group>"; };
@@ -101,9 +118,13 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1479E7E31EC11DA7008836FA /* FBSDKCoreKit.framework in Frameworks */,
 				1482A8D91EBB190E002A0010 /* AddressBook.framework in Frameworks */,
+				1479E7E41EC11DA7008836FA /* FBSDKLoginKit.framework in Frameworks */,
+				1479E7E51EC11DA7008836FA /* FBSDKShareKit.framework in Frameworks */,
 				1482A8DA1EBB190E002A0010 /* AddressBookUI.framework in Frameworks */,
 				0489EAC61EAFB0C800BB4820 /* Masonry.framework in Frameworks */,
+				1479E7E21EC11DA7008836FA /* Bolts.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -168,9 +189,76 @@
 			path = ContactsBookTests;
 			sourceTree = "<group>";
 		};
+		1479E7D71EC0EB4F008836FA /* Device contacts */ = {
+			isa = PBXGroup;
+			children = (
+				1482A8DB1EBB1A74002A0010 /* CBAContactsBookDataBase.h */,
+				1482A8DC1EBB1A74002A0010 /* CBAContactsBookDataBase.m */,
+			);
+			name = "Device contacts";
+			sourceTree = "<group>";
+		};
+		1479E7D81EC0EB65008836FA /* Simple JSON */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F3B1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.h */,
+				14CD7F3C1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m */,
+			);
+			name = "Simple JSON";
+			sourceTree = "<group>";
+		};
+		1479E7D91EC0EB7D008836FA /* VK */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F2E1EB26DC100A460D8 /* CBANetworkDataBase.h */,
+				14CD7F2F1EB26DC100A460D8 /* CBANetworkDataBase.m */,
+			);
+			name = VK;
+			sourceTree = "<group>";
+		};
+		1479E7DA1EC0EB88008836FA /* JSON parser */ = {
+			isa = PBXGroup;
+			children = (
+				14CD7F1A1EB2533200A460D8 /* CBAJsonDataBase.h */,
+				14CD7F1B1EB2533200A460D8 /* CBAJsonDataBase.m */,
+			);
+			name = "JSON parser";
+			sourceTree = "<group>";
+		};
+		1479E7E91EC1342C008836FA /* FB web page */ = {
+			isa = PBXGroup;
+			children = (
+				1479E7E61EC133FF008836FA /* CBAFaceBookViewController.h */,
+				1479E7E71EC133FF008836FA /* CBAFaceBookViewController.m */,
+			);
+			name = "FB web page";
+			sourceTree = "<group>";
+		};
+		1479E7ED1EC137C0008836FA /* Table with database */ = {
+			isa = PBXGroup;
+			children = (
+				0489EAA61EAFB03400BB4820 /* ViewController.h */,
+				0489EAA71EAFB03400BB4820 /* ViewController.m */,
+			);
+			name = "Table with database";
+			sourceTree = "<group>";
+		};
+		1479E7EE1EC47A0F008836FA /* Facebook */ = {
+			isa = PBXGroup;
+			children = (
+				1479E7DB1EC0F056008836FA /* CBAFacebookDataBase.h */,
+				1479E7DC1EC0F056008836FA /* CBAFacebookDataBase.m */,
+			);
+			name = Facebook;
+			sourceTree = "<group>";
+		};
 		1482A8D61EBB190D002A0010 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				1479E7DE1EC11DA7008836FA /* Bolts.framework */,
+				1479E7DF1EC11DA7008836FA /* FBSDKCoreKit.framework */,
+				1479E7E01EC11DA7008836FA /* FBSDKLoginKit.framework */,
+				1479E7E11EC11DA7008836FA /* FBSDKShareKit.framework */,
 				1482A8D71EBB190E002A0010 /* AddressBook.framework */,
 				1482A8D81EBB190E002A0010 /* AddressBookUI.framework */,
 			);
@@ -180,9 +268,11 @@
 		14CD7EC01EB0244D00A460D8 /* Navigation */ = {
 			isa = PBXGroup;
 			children = (
-				0489EAA61EAFB03400BB4820 /* ViewController.h */,
-				0489EAA71EAFB03400BB4820 /* ViewController.m */,
+				1479E7EA1EC137B4008836FA /* CBANavigation.h */,
+				1479E7EB1EC137B4008836FA /* CBANavigation.m */,
+				1479E7ED1EC137C0008836FA /* Table with database */,
 				14CD7F391EB2AAA100A460D8 /* VK web page */,
+				1479E7E91EC1342C008836FA /* FB web page */,
 			);
 			name = Navigation;
 			sourceTree = "<group>";
@@ -210,14 +300,11 @@
 			children = (
 				14CD7F181EB2533200A460D8 /* contacts.json */,
 				14CD7F191EB2533200A460D8 /* CBADataBaseDriver.h */,
-				14CD7F1A1EB2533200A460D8 /* CBAJsonDataBase.h */,
-				14CD7F1B1EB2533200A460D8 /* CBAJsonDataBase.m */,
-				14CD7F2E1EB26DC100A460D8 /* CBANetworkDataBase.h */,
-				14CD7F2F1EB26DC100A460D8 /* CBANetworkDataBase.m */,
-				14CD7F3B1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.h */,
-				14CD7F3C1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m */,
-				1482A8DB1EBB1A74002A0010 /* CBAContactsBookDataBase.h */,
-				1482A8DC1EBB1A74002A0010 /* CBAContactsBookDataBase.m */,
+				1479E7DA1EC0EB88008836FA /* JSON parser */,
+				1479E7D91EC0EB7D008836FA /* VK */,
+				1479E7D81EC0EB65008836FA /* Simple JSON */,
+				1479E7D71EC0EB4F008836FA /* Device contacts */,
+				1479E7EE1EC47A0F008836FA /* Facebook */,
 			);
 			name = DataBase;
 			sourceTree = "<group>";
@@ -378,6 +465,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				1479E7EC1EC137B4008836FA /* CBANavigation.m in Sources */,
 				0489EAA81EAFB03400BB4820 /* ViewController.m in Sources */,
 				14CD7F1F1EB2533200A460D8 /* CBAJsonDataBase.m in Sources */,
 				1482A8DD1EBB1A74002A0010 /* CBAContactsBookDataBase.m in Sources */,
@@ -387,8 +475,10 @@
 				0489EAA51EAFB03400BB4820 /* AppDelegate.m in Sources */,
 				14CD7F331EB271EC00A460D8 /* VKVMainViewController.m in Sources */,
 				14CD7F1C1EB2533200A460D8 /* CBAContact.m in Sources */,
+				1479E7E81EC133FF008836FA /* CBAFaceBookViewController.m in Sources */,
 				14CD7F301EB26DC100A460D8 /* CBANetworkDataBase.m in Sources */,
 				0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */,
+				1479E7DD1EC0F056008836FA /* CBAFacebookDataBase.m in Sources */,
 				14CD7F3D1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m in Sources */,
 				0489EAA21EAFB03400BB4820 /* main.m in Sources */,
 			);

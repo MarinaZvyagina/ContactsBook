@@ -10,6 +10,7 @@
 #import <WebKit/WebKit.h>
 #import <Security/Security.h>
 #import "ViewController.h"
+#import "CBANetworkDataBase.h"
 
 
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
@@ -54,8 +55,20 @@
 
 
 -(void) moveToTVC{
-    ViewController *vc = [ViewController new];
+    
+    id<CBADataBaseDriver>  contactManager = [CBANetworkDataBase new];
+    ViewController *vc = [[ViewController alloc] initWithContactManager:contactManager];
     UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+  //  self.edgesForExtendedLayout = UIRectEdgeNone;
+    
+    //[self.navigationController setViewControllers:@[navigationController]];
+    
+ //   [self addChildViewController:navigationController];
+ //   [self showViewController:navigationController sender:nil];
+    
+//    [self dismissViewControllerAnimated:YES completion:nil];
+   // [self addChildViewController:navigationController];
+    
     [self presentViewController:navigationController animated:YES completion:nil];
 }
 

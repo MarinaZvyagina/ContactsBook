@@ -10,5 +10,5 @@
 #import "CBADataBaseDriver.h"
 
 @interface CBAContactsBookDataBase : NSObject<CBADataBaseDriver>
--(CBAContactList *)getContacts;
+-(CBAContactList *)getContacts: (UITableView *) tableView;
 @end

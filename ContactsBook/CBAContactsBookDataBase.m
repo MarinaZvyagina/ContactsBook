@@ -14,7 +14,7 @@
 
 @implementation CBAContactsBookDataBase
 
--(CBAContactList *)getContacts {
+-(CBAContactList *)getContacts: (UITableView *) tableView {
 
     return [[CBAContactList alloc] initWithArray:[self getContactsWithAddressBook]];
 
@@ -28,7 +28,7 @@
         ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
             if (granted) {
                 // First time access has been granted, add the contact
-                [finalContactList addObject:[self getContacts]];
+                [finalContactList addObject:[self getCBContacts]];
             } else {
                 // User denied access
                 // Display an alert telling user the contact could not be added
@@ -64,8 +64,6 @@
         return contact;
     };
     
-    
-    
     NSMutableArray *newContactArray = [[NSMutableArray alloc]init];
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
     NSArray *arrayOfAllPeople1 = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeople(addressBook);
@@ -73,7 +71,6 @@
     for (peopleCounter = 0;peopleCounter < [arrayOfAllPeople1 count]; peopleCounter++)
     {
         ABRecordRef thisPerson = (__bridge ABRecordRef) [arrayOfAllPeople1 objectAtIndex:peopleCounter];
-  //      NSString *name = (__bridge NSString *) ABRecordCopyCompositeName(thisPerson);
         NSString *name = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonFirstNameProperty));
         NSString *surname = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonLastNameProperty));
         NSString *numbers = @"";
