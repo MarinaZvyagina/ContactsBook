@@ -11,10 +11,11 @@
 #import "CBAContact.h"
 #import <AddressBook/ABAddressBook.h>
 #import <AddressBookUI/AddressBookUI.h>
+#import "ViewController.h"
 
 @implementation CBAContactsBookDataBase
 
--(CBAContactList *)getContacts: (UITableView *) tableView {
+-(CBAContactList *)getContacts:(ViewController *) view {
 
     return [[CBAContactList alloc] initWithArray:[self getContactsWithAddressBook]];
 

@@ -16,7 +16,7 @@
 @implementation CBAFacebookDataBase
 
 
--(CBAContactList *)getContacts: (UITableView *) tableView {
+-(CBAContactList *)getContacts:(ViewController *) view {
     NSArray * fields = @[
                          @"first_name",
                          @"last_name",
@@ -62,7 +62,7 @@
                 }
                 NSLog(@"fetched user:%@", result);
                 [ViewController updateContacts: [[CBAContactList alloc] initWithArray:resultContacts]];
-                [tableView reloadData];
+                [view.tableView reloadData];
             }
         }];
     }

@@ -8,11 +8,12 @@
 
 #import "CBAPathFileJsonDataBase.h"
 #import "CBAJsonDataBase.h"
-//#import "CBAContactList.h"
+#import "CBAContactList.h"
+#import "ViewController.h"
 
 @implementation CBAPathFileJsonDataBase
 
--(CBAContactList *)getContacts:(UITableView *) tableView {
+-(CBAContactList *)getContacts:(ViewController *) view {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contacts" ofType:@"json"];
     NSData *JSONData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:nil];
     

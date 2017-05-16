@@ -8,11 +8,14 @@
 
 #import <Foundation/Foundation.h>
 #import <UIKit/UIKit.h>
+//#import "ViewController.h"
 @class CBAContactList;
+@class ViewController;
 
 @protocol CBADataBaseDriver <NSObject>
 
 @required
--(CBAContactList *)getContacts:(UITableView *) tableView ;
+-(CBAContactList *)getContacts:(ViewController *) view;
+//-(CBAContactList *)getContacts:(ViewController *) view;
 
 @end

@@ -10,5 +10,5 @@
 #import "CBADataBaseDriver.h"
 
 @interface CBAFacebookDataBase : NSObject<CBADataBaseDriver>
--(CBAContactList *)getContacts:(UITableView *) tableView;
+-(CBAContactList *)getContacts:(ViewController *) view;
 @end

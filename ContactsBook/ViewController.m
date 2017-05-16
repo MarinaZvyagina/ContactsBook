@@ -13,11 +13,13 @@
 #import "CBANetworkDataBase.h"
 #import "CBAPathFileJsonDataBase.h"
 #import "CBAContactsBookDataBase.h"
+#import "CBAFacebookDataBase.h"
 #import "CBAContact.h"
+#import "VKVMainViewController.h"
 @import Masonry;
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate>
-@property (nonatomic, strong) UITableView * tableView;
+@property (nonatomic, strong) UISegmentedControl *segmentedControl;
 @property (nonatomic, strong) CBAContactList * contacts;
 @property (nonatomic, strong) id<CBADataBaseDriver> contactManager;
 
@@ -49,15 +51,20 @@ static CBAContactList * staticContacts;
     [self.view addSubview:self.tableView];
     self.tableView.dataSource = self;
     self.tableView.delegate = self;
+    self.segmentedControl = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"VK", @"Facebook", @"Contacts", nil]];
+    [self.segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
+    self.segmentedControl.center = self.navigationBar.center;
     
+    [self.navigationBar addSubview:self.segmentedControl];
+
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top).with.offset(30);
+        make.top.equalTo(self.navigationBar.mas_bottom).with.offset(10);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 
-    self.contacts = [self.contactManager getContacts:self.tableView];
+    self.contacts = [self.contactManager getContacts:self];
     staticContacts = self.contacts;
     [self.tableView registerClass:[CBACell class] forCellReuseIdentifier:CBACellIdentifier];
 }
@@ -99,6 +106,41 @@ static CBAContactList * staticContacts;
 
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
+}
+
+typedef enum selectedStateTypes {
+    VK,
+    Facebook,
+    Contacts
+} selectedState;
+
+- (void)segmentAction:(UISegmentedControl *)sender
+{
+    NSInteger index = sender.selectedSegmentIndex;
+    NSString* accessToken;
+    switch (index) {
+        case VK:
+            self.contactManager = [CBANetworkDataBase new];
+            accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"VKAccessToken"];
+            break;
+        case Facebook:
+            self.contactManager = [CBAFacebookDataBase new];
+            break;
+        case Contacts:
+            self.contactManager = [CBAContactsBookDataBase new];
+            break;
+        default:
+            break;
+    }
+    if ((index == VK) && (accessToken == nil)) {
+        VKVMainViewController *mainVC=[[VKVMainViewController alloc] init];
+        [self presentViewController:mainVC animated:YES completion:nil];
+    }
+    else {
+        self.contacts = [self.contactManager getContacts:self];
+        staticContacts = self.contacts;
+        [self.tableView reloadData];
+    }
 }
 
 @end

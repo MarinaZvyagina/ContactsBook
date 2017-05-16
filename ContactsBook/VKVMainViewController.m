@@ -58,18 +58,8 @@
     
     id<CBADataBaseDriver>  contactManager = [CBANetworkDataBase new];
     ViewController *vc = [[ViewController alloc] initWithContactManager:contactManager];
-    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
-  //  self.edgesForExtendedLayout = UIRectEdgeNone;
-    
-    //[self.navigationController setViewControllers:@[navigationController]];
-    
- //   [self addChildViewController:navigationController];
- //   [self showViewController:navigationController sender:nil];
-    
-//    [self dismissViewControllerAnimated:YES completion:nil];
-   // [self addChildViewController:navigationController];
-    
-    [self presentViewController:navigationController animated:YES completion:nil];
+
+    [self presentViewController:vc animated:YES completion:nil];
 }
 
 #pragma - WKNavigationDelegate

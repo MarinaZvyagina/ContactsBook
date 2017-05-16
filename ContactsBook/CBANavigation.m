@@ -26,10 +26,6 @@
     ViewController *vc = [[ViewController alloc] initWithContactManager:[CBAPathFileJsonDataBase new]];
     
     self.navController = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    // Ask in class
-    // FIXME: not good
-    //self.navController.edgesForExtendedLayout = UIRectEdgeNone;
 
     NSArray* items = [[NSArray alloc] initWithObjects: @"VK", @"Facebook", @"Contacts", nil];
     
