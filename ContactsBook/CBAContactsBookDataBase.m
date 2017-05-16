@@ -83,7 +83,6 @@
             {
                 numbers = [numbers stringByAppendingString:[currentPhoneNumber stringByAppendingString:@" "]];
             }
-            
         }
         NSString *mails = @"";
         ABMultiValueRef email = ABRecordCopyValue(thisPerson, kABPersonEmailProperty);

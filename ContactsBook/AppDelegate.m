@@ -7,13 +7,10 @@
 //
 
 #import "AppDelegate.h"
-//#import "ViewController.h"
 #import "CBAPathFileJsonDataBase.h"
 #import "VKVMainViewController.h"
 #import "CBAFaceBookViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-//#import "CBANavigation.h"
-
 #import "ViewController.h"
 @interface AppDelegate ()
 
@@ -26,19 +23,9 @@
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
-    
     ViewController *vc = [[ViewController alloc] initWithContactManager:[CBAPathFileJsonDataBase new]];
-  //  UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
     UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    /*
-    
 
-    
-    UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-    CBANavigation * mainNavigation = [CBANavigation new];
-    
-     */
-     
     window.rootViewController = vc;
     self.window = window;
     [window makeKeyAndVisible];

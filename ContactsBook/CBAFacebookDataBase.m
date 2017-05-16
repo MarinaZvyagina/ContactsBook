@@ -39,7 +39,6 @@
         return contact;
     };
     
-    
     if ([FBSDKAccessToken currentAccessToken]) {
         [[[FBSDKGraphRequest alloc]
           initWithGraphPath:@"/me"
