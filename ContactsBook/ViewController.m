@@ -17,6 +17,8 @@
 #import "CBAContact.h"
 #import "VKVMainViewController.h"
 #import "CBAViewManager.h"
+#import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "CBAFaceBookViewController.h"
 @import Masonry;
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, CBAViewManager>
@@ -56,12 +58,12 @@ static CBAContactList * staticContacts;
     [self.segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
 
    // self.segmentedControl.center = self.navigationController.navigationBar.center;
-    [self.segmentedControl mas_makeConstraints:^(MASConstraintMaker *make) {
+  /*  [self.segmentedControl mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view.mas_top);
         make.left.equalTo(self.view.mas_left);
         make.right.equalTo(self.view.mas_right);
         make.bottom.equalTo(self.view.mas_bottom);
-    }];
+    }];*/
 
    // self.navigationController.navigationBar set
     
@@ -156,15 +158,18 @@ typedef enum selectedStateTypes {
             break;
     }
     if ((index == VK) && (accessToken == nil)) {
-        VKVMainViewController *mainVC=[[VKVMainViewController alloc] initWithViewManager:self];;
-        [self.navigationController pushViewController:mainVC animated:YES];
-      //  [self presentViewController:mainVC animated:YES completion:nil];
+        VKVMainViewController *vkViewController=[[VKVMainViewController alloc] initWithViewManager:self];;
+        [self.navigationController pushViewController:vkViewController animated:YES];
+    } else if ((index == Facebook) && !([FBSDKAccessToken currentAccessToken])) {
+        CBAFaceBookViewController * fbViewController = [[CBAFaceBookViewController alloc] initWithViewManager:self];
+        [self.navigationController pushViewController:fbViewController animated:YES];
     }
     else {
         self.contacts = [self.contactManager getContacts:self];
         staticContacts = self.contacts;
         [self.tableView reloadData];
     }
+    
 }
 
 @end

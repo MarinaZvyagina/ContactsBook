@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBAViewManager.h"
 
 @interface CBAFaceBookViewController : UIViewController
-
+-(instancetype) initWithViewManager: (id<CBAViewManager>) viewManager;
 @end

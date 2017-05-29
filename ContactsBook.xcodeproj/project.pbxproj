@@ -187,6 +187,17 @@
 			path = ContactsBookTests;
 			sourceTree = "<group>";
 		};
+		14458C111EDC856000BC2A4D /* Autorization views */ = {
+			isa = PBXGroup;
+			children = (
+				14458C0E1EDC84BA00BC2A4D /* CBAFaceBookViewController.h */,
+				14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */,
+				146E56A51ECB5B6800DB8C46 /* VKVMainViewController.h */,
+				146E56A61ECB5B6800DB8C46 /* VKVMainViewController.m */,
+			);
+			name = "Autorization views";
+			sourceTree = "<group>";
+		};
 		1479E7D71EC0EB4F008836FA /* Device contacts */ = {
 			isa = PBXGroup;
 			children = (
@@ -310,15 +321,12 @@
 		14CD7F3A1EB2AACD00A460D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				14458C0E1EDC84BA00BC2A4D /* CBAFaceBookViewController.h */,
-				14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */,
 				14458C0D1EDC066900BC2A4D /* CBAViewManager.h */,
 				0489EAA31EAFB03400BB4820 /* AppDelegate.h */,
 				0489EAA41EAFB03400BB4820 /* AppDelegate.m */,
 				146E56A21ECB5B4300DB8C46 /* ViewController.h */,
 				146E56A31ECB5B4300DB8C46 /* ViewController.m */,
-				146E56A51ECB5B6800DB8C46 /* VKVMainViewController.h */,
-				146E56A61ECB5B6800DB8C46 /* VKVMainViewController.m */,
+				14458C111EDC856000BC2A4D /* Autorization views */,
 				14CD7F341EB277CF00A460D8 /* Cell */,
 				14CD7F381EB2AA7F00A460D8 /* Detail Information */,
 			);

@@ -9,11 +9,20 @@
 #import "CBAFaceBookViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 
-@interface CBAFaceBookViewController ()
+@interface CBAFaceBookViewController () <FBSDKLoginButtonDelegate>
 @property (strong, nonatomic) FBSDKLoginButton *loginButton;
+@property (nonatomic, strong) id<CBAViewManager> viewManager;
 @end
 
 @implementation CBAFaceBookViewController
+
+-(instancetype) initWithViewManager: (id<CBAViewManager>) viewManager {
+    self = [super init];
+    if (self) {
+        _viewManager = viewManager;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -24,6 +33,7 @@
     _loginButton.readPermissions = @[@"user_relationships", @"read_custom_friendlists", @"user_friends"];
     _loginButton.center = self.view.center;
     [self.view addSubview:_loginButton];
+    _loginButton.delegate = self;
     
     
 }
@@ -33,14 +43,21 @@
     // Dispose of any resources that can be recreated.
 }
 
-/*
-#pragma mark - Navigation
+- (void)  loginButton:(FBSDKLoginButton *)loginButton
+didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
+                error:(NSError *)error {
 
-// In a storyboard-based application, you will often want to do a little preparation before navigation
-- (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    [self.viewManager reloadView];
+    [self.viewManager goToRootViewController];
 }
-*/
+
+/**
+ Sent to the delegate when the button was used to logout.
+ - Parameter loginButton: The button that was clicked.
+ */
+- (void)loginButtonDidLogOut:(FBSDKLoginButton *)loginButton {
+    NSLog(@"loginButtonDidLogOut");
+}
+
 
 @end
