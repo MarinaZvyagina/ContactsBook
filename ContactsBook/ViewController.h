@@ -9,7 +9,7 @@
 #import <UIKit/UIKit.h>
 #import "CBADataBaseDriver.h"
 
-@interface ViewController : UINavigationController
+@interface ViewController : UIViewController
 +(void)updateContacts:(CBAContactList *)newContacts;
 -(instancetype) initWithContactManager:(id<CBADataBaseDriver>) contactManager;
 @property (nonatomic, strong) UITableView * tableView;

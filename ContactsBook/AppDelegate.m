@@ -26,7 +26,9 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     ViewController *vc = [[ViewController alloc] initWithContactManager:[CBAPathFileJsonDataBase new]];
     UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
 
-    window.rootViewController = vc;
+    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
+    
+    window.rootViewController = nc;
     self.window = window;
     [window makeKeyAndVisible];
     return YES;

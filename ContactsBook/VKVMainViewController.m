@@ -10,17 +10,25 @@
 #import <WebKit/WebKit.h>
 #import <Security/Security.h>
 #import "ViewController.h"
-#import "CBANetworkDataBase.h"
 
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
 @interface VKVMainViewController ()<WKNavigationDelegate>
 @property(nonatomic) BOOL authorised;
 @property (strong,nonatomic) WKWebView *webView;
-
+@property (nonatomic) UINavigationController * navigationRootController;
+@property (nonatomic, strong) id<CBAViewManager> viewManager;
 @end
 
 @implementation VKVMainViewController
+
+-(instancetype) initWithViewManager: (id<CBAViewManager>) viewManager {
+    self = [super init];
+    if (self) {
+        _viewManager = viewManager;
+    }
+    return self;
+}
 
 - (void)viewDidLoad {
     [super viewDidLoad];
@@ -54,11 +62,8 @@
 
 
 -(void) moveToTVC{
-    
-    id<CBADataBaseDriver>  contactManager = [CBANetworkDataBase new];
-    ViewController *vc = [[ViewController alloc] initWithContactManager:contactManager];
-
-    [self presentViewController:vc animated:YES completion:nil];
+    [self.viewManager reloadView];
+    [self.viewManager goToRootViewController];
 }
 
 #pragma - WKNavigationDelegate

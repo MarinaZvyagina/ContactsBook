@@ -77,6 +77,7 @@
 		0489EACA1EAFB51B00BB4820 /* CBACell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBACell.m; sourceTree = "<group>"; };
 		0489EACC1EAFCC5200BB4820 /* DetailInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInformation.h; sourceTree = "<group>"; };
 		0489EACD1EAFCC5200BB4820 /* DetailInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInformation.m; sourceTree = "<group>"; };
+		14458C0D1EDC066900BC2A4D /* CBAViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAViewManager.h; sourceTree = "<group>"; };
 		146E56A21ECB5B4300DB8C46 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		146E56A31ECB5B4300DB8C46 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		146E56A51ECB5B6800DB8C46 /* VKVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKVMainViewController.h; sourceTree = "<group>"; };
@@ -306,6 +307,7 @@
 		14CD7F3A1EB2AACD00A460D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14458C0D1EDC066900BC2A4D /* CBAViewManager.h */,
 				0489EAA31EAFB03400BB4820 /* AppDelegate.h */,
 				0489EAA41EAFB03400BB4820 /* AppDelegate.m */,
 				146E56A21ECB5B4300DB8C46 /* ViewController.h */,

@@ -7,7 +7,8 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "CBAViewManager.h"
 
 @interface VKVMainViewController : UIViewController
-
+-(instancetype) initWithViewManager: (id<CBAViewManager>) viewManager;
 @end
