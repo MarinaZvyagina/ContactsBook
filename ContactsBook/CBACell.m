@@ -95,51 +95,14 @@ NSString *const CBACellIdentifier = @"CBACellIdentifier";
    //  colors = @[UIColor.redColor, UIColor.blueColor, UIColor.grayColor, UIColor.greenColor, UIColor.cyanColor, UIColor.orangeColor, UIColor.yellowColor];
     
     if (self) {
+        [self createSubviews];
         // If local json file is chosen, my photo shows
         NSString * initUrl = url ? url : @"https://lh3.googleusercontent.com/-NmcPm_QhFzw/AAAAAAAAAAI/AAAAAAAAAAA/AHalGho6R0sfDXYGc7TOb35Svg_uk5h6Ug/mo/photo.jpg?sz=46";
         
         [self loadImage:initUrl];
-
-
-        self.Name = [UILabel new];
-        self.Surname = [UILabel new];
-        
-        [self addSubview:self.Name];
-        [self addSubview:self.Surname];
-        [self addSubview:self.Info];
-        
-        [self.Info mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.mas_left).with.offset(5);
-            make.top.equalTo(self.mas_top).with.offset(3);
-            make.width.equalTo(@40);
-            make.bottom.equalTo(self.mas_bottom).with.offset(-3);
-            make.height.equalTo(@40);
-        }];
-
-        self.Info.layer.cornerRadius =  self.frame.size.height / 2;
-        self.Info.clipsToBounds = YES;
-        
-        
         self.Name.text = name;
-        [self.Name setTextAlignment:NSTextAlignmentCenter];
-        
         self.Surname.text = surname;
-        [self.Surname setTextAlignment:NSTextAlignmentCenter];
-        
-        [self.Name mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.Info.mas_right).with.offset(10);
-            make.top.equalTo(self.mas_top);
-            make.bottom.equalTo(self.Surname.mas_top);
-            make.right.equalTo(self.mas_right).with.offset(-20);
-            make.width.greaterThanOrEqualTo(@100).width.priorityHigh();
-        }];
-        
-        [self.Surname mas_makeConstraints:^(MASConstraintMaker *make) {
-            make.left.equalTo(self.Info.mas_right);
-            make.bottom.equalTo(self.mas_bottom);
-            make.width.equalTo(self.Name.mas_width);
-            make.right.equalTo(self.mas_right).with.offset(-20);
-        }];
+
     }
     return self;
 }
