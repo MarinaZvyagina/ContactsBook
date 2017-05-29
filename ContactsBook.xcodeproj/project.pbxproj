@@ -17,6 +17,7 @@
 		0489EAC71EAFB0C800BB4820 /* Masonry.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = 0489EAC51EAFB0C800BB4820 /* Masonry.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		0489EACB1EAFB51B00BB4820 /* CBACell.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACA1EAFB51B00BB4820 /* CBACell.m */; };
 		0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACD1EAFCC5200BB4820 /* DetailInformation.m */; };
+		14458C101EDC84BA00BC2A4D /* CBAFaceBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */; };
 		146E56A41ECB5B4300DB8C46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E56A31ECB5B4300DB8C46 /* ViewController.m */; };
 		146E56A71ECB5B6800DB8C46 /* VKVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E56A61ECB5B6800DB8C46 /* VKVMainViewController.m */; };
 		1479E7DD1EC0F056008836FA /* CBAFacebookDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479E7DC1EC0F056008836FA /* CBAFacebookDataBase.m */; };
@@ -78,6 +79,8 @@
 		0489EACC1EAFCC5200BB4820 /* DetailInformation.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DetailInformation.h; sourceTree = "<group>"; };
 		0489EACD1EAFCC5200BB4820 /* DetailInformation.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DetailInformation.m; sourceTree = "<group>"; };
 		14458C0D1EDC066900BC2A4D /* CBAViewManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAViewManager.h; sourceTree = "<group>"; };
+		14458C0E1EDC84BA00BC2A4D /* CBAFaceBookViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAFaceBookViewController.h; sourceTree = "<group>"; };
+		14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAFaceBookViewController.m; sourceTree = "<group>"; };
 		146E56A21ECB5B4300DB8C46 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		146E56A31ECB5B4300DB8C46 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
 		146E56A51ECB5B6800DB8C46 /* VKVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKVMainViewController.h; sourceTree = "<group>"; };
@@ -307,6 +310,8 @@
 		14CD7F3A1EB2AACD00A460D8 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				14458C0E1EDC84BA00BC2A4D /* CBAFaceBookViewController.h */,
+				14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */,
 				14458C0D1EDC066900BC2A4D /* CBAViewManager.h */,
 				0489EAA31EAFB03400BB4820 /* AppDelegate.h */,
 				0489EAA41EAFB03400BB4820 /* AppDelegate.m */,
@@ -434,6 +439,7 @@
 				146E56A41ECB5B4300DB8C46 /* ViewController.m in Sources */,
 				14CD7F1C1EB2533200A460D8 /* CBAContact.m in Sources */,
 				14CD7F301EB26DC100A460D8 /* CBANetworkDataBase.m in Sources */,
+				14458C101EDC84BA00BC2A4D /* CBAFaceBookViewController.m in Sources */,
 				146E56A71ECB5B6800DB8C46 /* VKVMainViewController.m in Sources */,
 				0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */,
 				1479E7DD1EC0F056008836FA /* CBAFacebookDataBase.m in Sources */,

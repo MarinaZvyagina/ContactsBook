@@ -154,13 +154,13 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "ContactsBook/ViewController.m"
-            timestampString = "517737133.137646"
+            timestampString = "517741990.822481"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "123"
-            endingLineNumber = "123"
-            landmarkName = "-goToRootViewController"
-            landmarkType = "7">
+            startingLineNumber = "135"
+            endingLineNumber = "135"
+            landmarkName = "selectedStateTypes"
+            landmarkType = "13">
          </BreakpointContent>
       </BreakpointProxy>
    </Breakpoints>
