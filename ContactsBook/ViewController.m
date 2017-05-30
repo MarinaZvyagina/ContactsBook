@@ -30,14 +30,6 @@
 
 @implementation ViewController
 
-static CBAContactList * staticContacts;
-+ (CBAContactList *) staticContacts
-{ @synchronized(self) { return staticContacts; } }
-+ (void) setstaticContacts:(CBAContactList *)val
-{ @synchronized(self)
-    { staticContacts = val; } }
-
-
 -(instancetype) initWithContactManager:(id<CBADataBaseDriver>) contactManager {
     self = [super init];
     if (self) {
@@ -47,8 +39,7 @@ static CBAContactList * staticContacts;
 }
 
 - (void)viewDidLoad {
-    staticContacts = [CBAContactList new];
-    [super viewDidLoad];  
+    [super viewDidLoad];
     self.view.backgroundColor = [UIColor whiteColor];
     self.tableView = [UITableView new];
     [self.view addSubview:self.tableView];
@@ -66,12 +57,11 @@ static CBAContactList * staticContacts;
     }];
 
     self.contacts = [self.contactManager getContacts:self];
-    staticContacts = self.contacts;
     [self.tableView registerClass:[CBACell class] forCellReuseIdentifier:CBACellIdentifier];
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    return staticContacts.count;
+    return self.contacts.count;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -79,14 +69,14 @@ static CBAContactList * staticContacts;
     if (cell == nil) {
         cell = [[CBACell alloc] initWithStyle:UITableViewCellStyleDefault reuseIdentifier:CBACellIdentifier];
     }
-    CBAContact * contact = [staticContacts objectAtIndexedSubscript:indexPath.row];
+    CBAContact * contact = [self.contacts objectAtIndexedSubscript:indexPath.row];
     [(CBACell *)cell addContact:contact];
     return cell;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    CBAContact * cont = [staticContacts objectAtIndexedSubscript:indexPath.row];
+    CBAContact * cont = [self.contacts objectAtIndexedSubscript:indexPath.row];
     NSString * name = cont.name;
     NSString * surname = cont.surname;
     NSString * phone = cont.phone;
@@ -103,16 +93,19 @@ static CBAContactList * staticContacts;
 
 -(void) reloadView {
     self.contacts = [self.contactManager getContacts:self];
-    staticContacts = self.contacts;
+    [self reloadTable];
+}
+
+-(void) updateContacts: (CBAContactList *) newContacts {
+    self.contacts = newContacts;
+}
+
+-(void) reloadTable {
     [self.tableView reloadData];
 }
 
 -(void) goToRootViewController {
     [self.navigationController popViewControllerAnimated:YES];
-}
-
-+(void)updateContacts:(CBAContactList *)newContacts {
-    staticContacts = newContacts;
 }
 
 - (void)didReceiveMemoryWarning {
@@ -149,11 +142,9 @@ typedef enum selectedStateTypes {
     } else if ((index == Facebook) && !([FBSDKAccessToken currentAccessToken])) {
         CBAFaceBookViewController * fbViewController = [[CBAFaceBookViewController alloc] initWithViewManager:self];
         [self.navigationController pushViewController:fbViewController animated:YES];
-    }
-    else {
+    } else {
         [self reloadView];
     }
-    
 }
 
 @end

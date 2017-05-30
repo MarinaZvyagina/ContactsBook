@@ -12,11 +12,16 @@
 #import "CBAJsonDataBase.h"
 #import "CBAContact.h"
 #import "ViewController.h"
+#import "CBAViewManager.h"
+
+@interface CBAFacebookDataBase()
+@property (nonatomic, strong) id<CBAViewManager> viewManager;
+@end
 
 @implementation CBAFacebookDataBase
 
 
--(CBAContactList *)getContacts:(ViewController *) view {
+-(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
     NSArray * fields = @[
                          @"first_name",
                          @"last_name",
@@ -59,9 +64,8 @@
                     
                     [resultContacts addObject:createContact(name,surname,phone,email,url)];
                 }
-                NSLog(@"fetched user:%@", result);
-                [ViewController updateContacts: [[CBAContactList alloc] initWithArray:resultContacts]];
-                [view.tableView reloadData];
+                [viewManager updateContacts:[[CBAContactList alloc] initWithArray:resultContacts]];
+                [viewManager reloadTable];
             }
         }];
     }

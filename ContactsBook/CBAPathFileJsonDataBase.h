@@ -10,6 +10,6 @@
 #import "CBADataBaseDriver.h"
 
 @interface CBAPathFileJsonDataBase : UIImageView <CBADataBaseDriver>
--(CBAContactList *)getContacts:(ViewController *) view;
+-(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager;
 
 @end

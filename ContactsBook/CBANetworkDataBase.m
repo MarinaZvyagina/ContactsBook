@@ -16,7 +16,7 @@
 @implementation CBANetworkDataBase
 
 
--(CBAContactList *)getContacts:(ViewController *) view {
+-(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
     NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"VKAccessToken"];
     NSString*url=[@"https://api.vk.com/method/friends.get?user_id=14229717&fields=nickname,contacts,photo_100&" stringByAppendingString:accessToken];
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -28,9 +28,8 @@
                 completionHandler:^(NSData *data,
                                     NSURLResponse *response,
                                     NSError *error) {
-
                         responseData = data;
-                    [view.tableView reloadData];
+                    [viewManager reloadTable];
                     
                     
                 }] resume];

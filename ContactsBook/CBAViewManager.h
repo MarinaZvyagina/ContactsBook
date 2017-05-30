@@ -8,7 +8,10 @@
 
 #import <Foundation/Foundation.h>
 
+@class CBAContactList;
 @protocol CBAViewManager <NSObject>
 -(void) reloadView;
 -(void) goToRootViewController;
+-(void) updateContacts:(CBAContactList *) newContacts;
+-(void) reloadTable;
 @end

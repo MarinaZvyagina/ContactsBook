@@ -15,10 +15,8 @@
 
 @implementation CBAContactsBookDataBase
 
--(CBAContactList *)getContacts:(ViewController *) view {
-
+-(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
     return [[CBAContactList alloc] initWithArray:[self getContactsWithAddressBook]];
-
 }
 
 -(NSMutableArray *)getContactsWithAddressBook{
@@ -67,40 +65,30 @@
     
     NSMutableArray *newContactArray = [[NSMutableArray alloc]init];
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
-    NSArray *arrayOfAllPeople1 = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeople(addressBook);
+    NSArray *arrayOfAllPeople = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeople(addressBook);
     NSUInteger peopleCounter = 0;
-    for (peopleCounter = 0;peopleCounter < [arrayOfAllPeople1 count]; peopleCounter++)
-    {
-        ABRecordRef thisPerson = (__bridge ABRecordRef) [arrayOfAllPeople1 objectAtIndex:peopleCounter];
+    for (peopleCounter = 0; peopleCounter < arrayOfAllPeople.count; peopleCounter++) {
+        ABRecordRef thisPerson = (__bridge ABRecordRef) arrayOfAllPeople[peopleCounter];
         NSString *name = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonFirstNameProperty));
         NSString *surname = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonLastNameProperty));
-        NSString *numbers = @"";
         ABMultiValueRef number = ABRecordCopyValue(thisPerson, kABPersonPhoneProperty);
-        for (NSUInteger numberCounter = 0; numberCounter < ABMultiValueGetCount(number); numberCounter++)
-        {
-            NSString *currentPhoneNumber = (__bridge NSString *)ABMultiValueCopyValueAtIndex(number, numberCounter);
-            if ([currentPhoneNumber length]!=0)
-            {
-                numbers = [numbers stringByAppendingString:[currentPhoneNumber stringByAppendingString:@" "]];
-            }
-        }
-        NSString *mails = @"";
+        NSString *numbers = [self getItemStringFromABMultiValueRef:number];
         ABMultiValueRef email = ABRecordCopyValue(thisPerson, kABPersonEmailProperty);
-        for (NSUInteger emailCounter = 0; emailCounter < ABMultiValueGetCount(email); emailCounter++)
-        {
-            NSString *currentEmail = (__bridge NSString *)ABMultiValueCopyValueAtIndex(email, emailCounter);
-            if ([currentEmail length]!=0)
-            {
-                mails = [mails stringByAppendingString:[currentEmail stringByAppendingString:@" "]];
-            }
-            
-        }
-        
+        NSString *mails = [self getItemStringFromABMultiValueRef:email];
         [newContactArray addObject:createContact(name,surname,numbers,mails,@"")];
     }
     return newContactArray;
 }
 
-
+-(NSString *)getItemStringFromABMultiValueRef : (ABMultiValueRef) ref {
+    NSString *items = @"";
+    for (NSUInteger itemCounter = 0; itemCounter < ABMultiValueGetCount(ref); itemCounter++) {
+        NSString *currentItem = (__bridge NSString *)ABMultiValueCopyValueAtIndex(ref, itemCounter);
+        if ([currentItem length]!=0) {
+            items = [items stringByAppendingString:[currentItem stringByAppendingString:@" "]];
+        }
+    }
+    return items;
+}
 
 @end

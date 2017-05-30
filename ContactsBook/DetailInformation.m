@@ -27,7 +27,6 @@
         self.cell = [[CBACell alloc] initWithName:name AndSurname:surname andURL:url];
         self.phone = [UILabel new];
         
-        
         [self.view addSubview:self.cell];
         [self.view addSubview:self.phone];
         
@@ -45,8 +44,6 @@
         
         self.phone.text = phone;
         [self.phone setTextAlignment:NSTextAlignmentCenter];
-        
-        
     }
     return self;
 }

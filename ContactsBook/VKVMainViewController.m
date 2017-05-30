@@ -39,15 +39,13 @@
     
     if (_authorised==NO) {
         [self showSignInWebView];
-    }
-    else {
+    } else {
         [self moveToTVC];
     }
 }
 
 -(void)showSignInWebView{
-    if(!_webView)
-    {
+    if(!_webView) {
         _webView=[[WKWebView alloc]initWithFrame: self.view.bounds];
         _webView.navigationDelegate=self;
         [self.view addSubview:_webView];
@@ -79,8 +77,7 @@
 -(void)webView:(WKWebView *)webView didFinishNavigation:(WKNavigation *)navigation{
     [UIApplication sharedApplication].networkActivityIndicatorVisible = NO;
     
-    if ([_webView.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound)
-    {
+    if ([_webView.URL.absoluteString rangeOfString:@"access_token"].location != NSNotFound) {
         NSRange tokenBegin=[_webView.URL.absoluteString rangeOfString:@"access_token="];
         NSString *accessToken0=[_webView.URL.absoluteString substringFromIndex:tokenBegin.location+tokenBegin.length];
         NSRange tokenEnd=[accessToken0 rangeOfString:@"&expires" ];

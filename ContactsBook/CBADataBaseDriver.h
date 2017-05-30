@@ -10,11 +10,11 @@
 #import <UIKit/UIKit.h>
 
 @class CBAContactList;
-@class ViewController;
+@protocol CBAViewManager;
 
 @protocol CBADataBaseDriver <NSObject>
 
 @required
--(CBAContactList *)getContacts:(ViewController *) view;
+-(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager;
 
 @end

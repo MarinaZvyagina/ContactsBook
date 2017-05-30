@@ -8,27 +8,18 @@
 
 #import "AppDelegate.h"
 #import "CBAPathFileJsonDataBase.h"
-#import "VKVMainViewController.h"
-#import "CBAFaceBookViewController.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
 #import "ViewController.h"
-@interface AppDelegate ()
-
-@end
 
 @implementation AppDelegate
-
-
 - (BOOL)application:(UIApplication *)application
 didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
     [[FBSDKApplicationDelegate sharedInstance] application:application
                              didFinishLaunchingWithOptions:launchOptions];
     ViewController *vc = [[ViewController alloc] initWithContactManager:[CBAPathFileJsonDataBase new]];
     UIWindow *window = [[UIWindow alloc] initWithFrame:UIScreen.mainScreen.bounds];
-
-    UINavigationController *nc = [[UINavigationController alloc] initWithRootViewController:vc];
-    
-    window.rootViewController = nc;
+    UINavigationController *navigationController = [[UINavigationController alloc] initWithRootViewController:vc];
+    window.rootViewController = navigationController;
     self.window = window;
     [window makeKeyAndVisible];
     return YES;
@@ -38,11 +29,11 @@ didFinishLaunchingWithOptions:(NSDictionary *)launchOptions {
             openURL:(NSURL *)url
             options:(NSDictionary<UIApplicationOpenURLOptionsKey,id> *)options {
     
-    BOOL handled = [[FBSDKApplicationDelegate sharedInstance] application:application
-                                                                  openURL:url
-                                                        sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
-                                                               annotation:options[UIApplicationOpenURLOptionsAnnotationKey]
-                    ];
+    BOOL handled = [[FBSDKApplicationDelegate sharedInstance]
+                    application:application
+                    openURL:url
+                    sourceApplication:options[UIApplicationOpenURLOptionsSourceApplicationKey]
+                    annotation:options[UIApplicationOpenURLOptionsAnnotationKey]];
     return handled;
 }
 
