@@ -11,14 +11,14 @@
 #import "DetailInformation.h"
 #import "CBAContactList.h"
 #import "CBANetworkDataBase.h"
-#import "CBAPathFileJsonDataBase.h"
 #import "CBAContactsBookDataBase.h"
 #import "CBAFacebookDataBase.h"
 #import "CBAContact.h"
 #import "VKVMainViewController.h"
+#import "CBAFaceBookViewController.h"
 #import "CBAViewManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
-#import "CBAFaceBookViewController.h"
+
 @import Masonry;
 
 @interface ViewController () <UITableViewDataSource, UITableViewDelegate, CBAViewManager>
@@ -56,18 +56,7 @@ static CBAContactList * staticContacts;
     self.tableView.delegate = self;
     self.segmentedControl = [[UISegmentedControl alloc]initWithItems:[NSArray arrayWithObjects:@"VK", @"Facebook", @"Contacts", nil]];
     [self.segmentedControl addTarget:self action:@selector(segmentAction:) forControlEvents:UIControlEventValueChanged];
-
-   // self.segmentedControl.center = self.navigationController.navigationBar.center;
-  /*  [self.segmentedControl mas_makeConstraints:^(MASConstraintMaker *make) {
-        make.top.equalTo(self.view.mas_top);
-        make.left.equalTo(self.view.mas_left);
-        make.right.equalTo(self.view.mas_right);
-        make.bottom.equalTo(self.view.mas_bottom);
-    }];*/
-
-   // self.navigationController.navigationBar set
-    
-    [self.navigationController.navigationBar addSubview:self.segmentedControl];
+    self.navigationItem.titleView = self.segmentedControl;
     
     [self.tableView mas_makeConstraints:^(MASConstraintMaker *make) {
         make.top.equalTo(self.view).with.offset(20);
@@ -97,7 +86,7 @@ static CBAContactList * staticContacts;
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
-    CBAContact * cont = [self.contacts objectAtIndexedSubscript:indexPath.row];
+    CBAContact * cont = [staticContacts objectAtIndexedSubscript:indexPath.row];
     NSString * name = cont.name;
     NSString * surname = cont.surname;
     NSString * phone = cont.phone;
@@ -105,10 +94,7 @@ static CBAContactList * staticContacts;
     DetailInformation * detailInfo = [[DetailInformation alloc] initWithName:name                                                                     surname:surname andPhone:phone andUrl:url];
     detailInfo.view.backgroundColor = [UIColor whiteColor];
     detailInfo.navigationItem.title = [NSString stringWithFormat:@"%ld", indexPath.row];
-   // [self.view addSubview:detailInfo];
- //   self.tableView view
     [self.navigationController pushViewController:detailInfo animated:YES];
-   // [self presentViewController:detailInfo animated:YES completion:nil];
 }
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -165,9 +151,7 @@ typedef enum selectedStateTypes {
         [self.navigationController pushViewController:fbViewController animated:YES];
     }
     else {
-        self.contacts = [self.contactManager getContacts:self];
-        staticContacts = self.contacts;
-        [self.tableView reloadData];
+        [self reloadView];
     }
     
 }
