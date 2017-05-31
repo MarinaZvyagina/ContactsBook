@@ -17,6 +17,13 @@
 
 
 -(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
+    NSArray * fields = @[
+                         @"first_name",
+                         @"last_name",
+                         @"home_phone",
+                         @"nickname",
+                         @"photo_100"
+                         ];
     NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"VKAccessToken"];
     NSString*url=[@"https://api.vk.com/method/friends.get?user_id=14229717&fields=nickname,contacts,photo_100&" stringByAppendingString:accessToken];
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
@@ -24,25 +31,19 @@
     NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
 
-    [[session dataTaskWithRequest:nsurlRequest
+    NSURLSessionDataTask *downloadTask = [session dataTaskWithRequest:nsurlRequest
                 completionHandler:^(NSData *data,
                                     NSURLResponse *response,
                                     NSError *error) {
                         responseData = data;
+                    CBAContactList * contacts = [[CBAJsonDataBase new] getContacts:responseData forFields:fields];
+                    [viewManager updateContacts:contacts];
                     [viewManager reloadTable];
-                    
-                    
-                }] resume];
+                }];
 
-    NSArray * fields = @[
-                         @"first_name",
-                         @"last_name",
-                         @"home_phone",
-                         @"nickname",
-                         @"photo_100"
-                         ]; 
+    [downloadTask resume];
     
-    return [[CBAJsonDataBase new] getContacts:responseData forFields:fields];
+    return [CBAContactList new];
 }
 
 @end
