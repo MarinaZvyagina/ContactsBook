@@ -13,7 +13,7 @@
 
 @implementation CBAPathFileJsonDataBase
 
--(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
+-(void)getContacts: (id<CBAViewManager>) viewManager {
     NSString *filePath = [[NSBundle mainBundle] pathForResource:@"contacts" ofType:@"json"];
     NSData *JSONData = [NSData dataWithContentsOfFile:filePath options:NSDataReadingMappedIfSafe error:nil];
     
@@ -24,8 +24,9 @@
                          @"email",
                          @""
                          ];
-    
-    return [[CBAJsonDataBase new] getContacts:JSONData forFields:fields];
+    CBAContactList * contacts = [[CBAJsonDataBase new] getContacts:JSONData forFields:fields];
+    [viewManager updateContacts:contacts];
+    [viewManager reloadTable];
 }
 
 @end

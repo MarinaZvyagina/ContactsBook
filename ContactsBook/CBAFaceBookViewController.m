@@ -47,7 +47,7 @@
 didCompleteWithResult:(FBSDKLoginManagerLoginResult *)result
                 error:(NSError *)error {
 
-    [self.viewManager reloadView];
+    [self.viewManager reloadData];
     [self.viewManager goToRootViewController];
 }
 

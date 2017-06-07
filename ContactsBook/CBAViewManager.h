@@ -10,7 +10,7 @@
 
 @class CBAContactList;
 @protocol CBAViewManager <NSObject>
--(void) reloadView;
+-(void) reloadData;
 -(void) goToRootViewController;
 -(void) updateContacts:(CBAContactList *) newContacts;
 -(void) reloadTable;

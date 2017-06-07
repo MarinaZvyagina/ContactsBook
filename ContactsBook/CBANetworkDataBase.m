@@ -16,7 +16,7 @@
 @implementation CBANetworkDataBase
 
 
--(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
+-(void)getContacts: (id<CBAViewManager>) viewManager {
     NSArray * fields = @[
                          @"first_name",
                          @"last_name",
@@ -25,7 +25,8 @@
                          @"photo_100"
                          ];
     NSString* accessToken = [[NSUserDefaults standardUserDefaults] objectForKey:@"VKAccessToken"];
-    NSString*url=[@"https://api.vk.com/method/friends.get?user_id=14229717&fields=nickname,contacts,photo_100&" stringByAppendingString:accessToken];
+    NSString* userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
+    NSString*url = [NSString stringWithFormat:@"https://api.vk.com/method/friends.get?user_id=%@&fields=nickname,contacts,photo_100&%@",userID,accessToken];
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
     __block NSData *responseData = [NSURLConnection sendSynchronousRequest:nsurlRequest returningResponse:nil error:nil];
     NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
@@ -42,8 +43,6 @@
                 }];
 
     [downloadTask resume];
-    
-    return [CBAContactList new];
 }
 
 @end

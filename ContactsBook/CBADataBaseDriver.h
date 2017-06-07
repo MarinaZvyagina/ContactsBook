@@ -15,6 +15,6 @@
 @protocol CBADataBaseDriver <NSObject>
 
 @required
--(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager;
+-(void)getContacts: (id<CBAViewManager>) viewManager;
 
 @end

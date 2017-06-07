@@ -15,15 +15,19 @@
 
 @implementation CBAContactsBookDataBase
 
--(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
-    return [[CBAContactList alloc] initWithArray:[self getContactsWithAddressBook]];
+-(void)getContacts: (id<CBAViewManager>) viewManager {
+    CBAContactList * contacts = [[CBAContactList alloc] initWithArray:[self getContactsWithAddressBook]];
+    [viewManager updateContacts:contacts];
+    [viewManager reloadTable];
 }
 
--(NSMutableArray *)getContactsWithAddressBook{
+-(NSArray *)getContactsWithAddressBook{
     
     NSMutableArray *finalContactList = [[NSMutableArray alloc] init];
-    ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
-    if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusNotDetermined) {
+
+    ABAuthorizationStatus authorizationStatus = ABAddressBookGetAuthorizationStatus();
+    if (authorizationStatus == kABAuthorizationStatusNotDetermined) {
+        ABAddressBookRef addressBookRef = ABAddressBookCreateWithOptions(NULL, NULL);
         ABAddressBookRequestAccessWithCompletion(addressBookRef, ^(bool granted, CFErrorRef error) {
             if (granted) {
                 // First time access has been granted, add the contact
@@ -34,7 +38,7 @@
             }
         });
     }
-    else if (ABAddressBookGetAuthorizationStatus() == kABAuthorizationStatusAuthorized) {
+    else if (authorizationStatus == kABAuthorizationStatusAuthorized) {
         // The user has previously given access, add the contact
         finalContactList = [self getCBContacts];
     }
@@ -66,8 +70,7 @@
     NSMutableArray *newContactArray = [[NSMutableArray alloc]init];
     ABAddressBookRef addressBook = ABAddressBookCreateWithOptions(NULL, NULL);
     NSArray *arrayOfAllPeople = (__bridge NSArray *) ABAddressBookCopyArrayOfAllPeople(addressBook);
-    NSUInteger peopleCounter = 0;
-    for (peopleCounter = 0; peopleCounter < arrayOfAllPeople.count; peopleCounter++) {
+    for (NSUInteger peopleCounter = 0; peopleCounter < arrayOfAllPeople.count; peopleCounter++) {
         ABRecordRef thisPerson = (__bridge ABRecordRef) arrayOfAllPeople[peopleCounter];
         NSString *name = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonFirstNameProperty));
         NSString *surname = (__bridge NSString *)(ABRecordCopyValue(thisPerson, kABPersonLastNameProperty));

@@ -8,8 +8,9 @@
 
 #import <UIKit/UIKit.h>
 #import "CBADataBaseDriver.h"
+#import "CBAViewManager.h"
 
 @interface CBAPathFileJsonDataBase : UIImageView <CBADataBaseDriver>
--(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager;
+-(void)getContacts: (id<CBAViewManager>) viewManager;
 
 @end

@@ -35,6 +35,7 @@
 }
 
 -(void)viewWillAppear:(BOOL)animated{
+    [super viewWillAppear:animated];
     _authorised=NO;
     
     if (_authorised==NO) {
@@ -59,7 +60,7 @@
 
 
 -(void) moveToTVC{
-    [self.viewManager reloadView];
+    [self.viewManager reloadData];
     [self.viewManager goToRootViewController];
 }
 
@@ -83,7 +84,13 @@
         NSRange tokenEnd=[accessToken0 rangeOfString:@"&expires" ];
         NSString *accessToken1=[accessToken0 substringToIndex:tokenEnd.location];
         
-        [self saveToken:accessToken1];
+        NSRange userIDBegin=[_webView.URL.absoluteString rangeOfString:@"user_id="];
+        NSString *userID0=[_webView.URL.absoluteString substringFromIndex:userIDBegin.location+userIDBegin.length];
+        NSRange userIDEnd=[userID0 rangeOfString:@"&" ];
+        NSString *userID1=[userID0 substringToIndex:userIDEnd.location];
+        
+        
+        [self saveToken:accessToken1 andUserId:userID1];
         [self moveToTVC];
         
     } else if ([_webView.URL.absoluteString rangeOfString:@"error"].location != NSNotFound) {
@@ -99,9 +106,9 @@
     }
 }
 
--(void)saveToken:(NSString*)accessToken{
+-(void)saveToken:(NSString*)accessToken andUserId:(NSString *)userID{
     [[NSUserDefaults standardUserDefaults] setObject:accessToken forKey:@"VKAccessToken"];
-    [[NSUserDefaults standardUserDefaults] setObject:[NSDate date] forKey:@"VKAccessTokenDate"];
+    [[NSUserDefaults standardUserDefaults] setObject:userID forKey:@"userID"];
     [[NSUserDefaults standardUserDefaults] synchronize];
     _authorised=YES;
 }

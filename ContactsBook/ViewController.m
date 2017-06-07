@@ -13,7 +13,6 @@
 #import "CBANetworkDataBase.h"
 #import "CBAContactsBookDataBase.h"
 #import "CBAFacebookDataBase.h"
-#import "CBAContact.h"
 #import "VKVMainViewController.h"
 #import "CBAFaceBookViewController.h"
 #import "CBAViewManager.h"
@@ -56,7 +55,7 @@
         make.bottom.equalTo(self.view.mas_bottom);
     }];
 
-    self.contacts = [self.contactManager getContacts:self];
+    [self.contactManager getContacts:self];
     [self.tableView registerClass:[CBACell class] forCellReuseIdentifier:CBACellIdentifier];
 }
 
@@ -91,9 +90,8 @@
     return 50;
 }
 
--(void) reloadView {
-    self.contacts = [self.contactManager getContacts:self];
-    [self reloadTable];
+-(void) reloadData {
+    [self.contactManager getContacts:self];
 }
 
 -(void) updateContacts: (CBAContactList *) newContacts {
@@ -143,7 +141,7 @@ typedef enum selectedStateTypes {
         CBAFaceBookViewController * fbViewController = [[CBAFaceBookViewController alloc] initWithViewManager:self];
         [self.navigationController pushViewController:fbViewController animated:YES];
     } else {
-        [self reloadView];
+        [self reloadData];
     }
 }
 

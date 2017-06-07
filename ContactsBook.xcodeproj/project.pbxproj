@@ -142,7 +142,6 @@
 				0489EA9F1EAFB03400BB4820 /* ContactsBook */,
 				0489EAB91EAFB03400BB4820 /* ContactsBookTests */,
 				0489EA9E1EAFB03400BB4820 /* Products */,
-				0489EAC51EAFB0C800BB4820 /* Masonry.framework */,
 				1482A8D61EBB190D002A0010 /* Frameworks */,
 			);
 			sourceTree = "<group>";
@@ -159,6 +158,7 @@
 		0489EA9F1EAFB03400BB4820 /* ContactsBook */ = {
 			isa = PBXGroup;
 			children = (
+				14CD7F221EB2535000A460D8 /* DataBase */,
 				14CD7F231EB2536300A460D8 /* Model */,
 				14CD7F3A1EB2AACD00A460D8 /* View */,
 				0489EAA91EAFB03400BB4820 /* Main.storyboard */,
@@ -246,6 +246,7 @@
 		1482A8D61EBB190D002A0010 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				0489EAC51EAFB0C800BB4820 /* Masonry.framework */,
 				1479E7DE1EC11DA7008836FA /* Bolts.framework */,
 				1479E7DF1EC11DA7008836FA /* FBSDKCoreKit.framework */,
 				1479E7E01EC11DA7008836FA /* FBSDKLoginKit.framework */,
@@ -293,7 +294,6 @@
 			children = (
 				14CD7F201EB2533900A460D8 /* Contact */,
 				14CD7F211EB2534400A460D8 /* ContactList */,
-				14CD7F221EB2535000A460D8 /* DataBase */,
 			);
 			name = Model;
 			sourceTree = "<group>";

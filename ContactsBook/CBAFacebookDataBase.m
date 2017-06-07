@@ -21,7 +21,7 @@
 @implementation CBAFacebookDataBase
 
 
--(CBAContactList *)getContacts: (id<CBAViewManager>) viewManager {
+-(void)getContacts: (id<CBAViewManager>) viewManager {
     NSArray * fields = @[
                          @"first_name",
                          @"last_name",
@@ -68,10 +68,7 @@
                 [viewManager reloadTable];
             }
         }];
-    }
-    
-    return [CBAContactList new];
-    
+    }    
 }
 
 @end
