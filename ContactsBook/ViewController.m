@@ -13,7 +13,7 @@
 #import "CBANetworkDataBase.h"
 #import "CBAContactsBookDataBase.h"
 #import "CBAFacebookDataBase.h"
-#import "VKVMainViewController.h"
+#import "CBAVKViewController.h"
 #import "CBAFaceBookViewController.h"
 #import "CBAViewManager.h"
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
@@ -135,7 +135,7 @@ typedef enum selectedStateTypes {
             break;
     }
     if ((index == VK) && (accessToken == nil)) {
-        VKVMainViewController *vkViewController=[[VKVMainViewController alloc] initWithViewManager:self];;
+        CBAVKViewController *vkViewController=[[CBAVKViewController alloc] initWithViewManager:self];;
         [self.navigationController pushViewController:vkViewController animated:YES];
     } else if ((index == Facebook) && !([FBSDKAccessToken currentAccessToken])) {
         CBAFaceBookViewController * fbViewController = [[CBAFaceBookViewController alloc] initWithViewManager:self];

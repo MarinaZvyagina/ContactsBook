@@ -19,7 +19,7 @@
 		0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */ = {isa = PBXBuildFile; fileRef = 0489EACD1EAFCC5200BB4820 /* DetailInformation.m */; };
 		14458C101EDC84BA00BC2A4D /* CBAFaceBookViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */; };
 		146E56A41ECB5B4300DB8C46 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E56A31ECB5B4300DB8C46 /* ViewController.m */; };
-		146E56A71ECB5B6800DB8C46 /* VKVMainViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E56A61ECB5B6800DB8C46 /* VKVMainViewController.m */; };
+		146E56A71ECB5B6800DB8C46 /* CBAVKViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 146E56A61ECB5B6800DB8C46 /* CBAVKViewController.m */; };
 		1479E7DD1EC0F056008836FA /* CBAFacebookDataBase.m in Sources */ = {isa = PBXBuildFile; fileRef = 1479E7DC1EC0F056008836FA /* CBAFacebookDataBase.m */; };
 		1479E7E21EC11DA7008836FA /* Bolts.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1479E7DE1EC11DA7008836FA /* Bolts.framework */; };
 		1479E7E31EC11DA7008836FA /* FBSDKCoreKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1479E7DF1EC11DA7008836FA /* FBSDKCoreKit.framework */; };
@@ -83,8 +83,8 @@
 		14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAFaceBookViewController.m; sourceTree = "<group>"; };
 		146E56A21ECB5B4300DB8C46 /* ViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ViewController.h; sourceTree = "<group>"; };
 		146E56A31ECB5B4300DB8C46 /* ViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ViewController.m; sourceTree = "<group>"; };
-		146E56A51ECB5B6800DB8C46 /* VKVMainViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VKVMainViewController.h; sourceTree = "<group>"; };
-		146E56A61ECB5B6800DB8C46 /* VKVMainViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VKVMainViewController.m; sourceTree = "<group>"; };
+		146E56A51ECB5B6800DB8C46 /* CBAVKViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAVKViewController.h; sourceTree = "<group>"; };
+		146E56A61ECB5B6800DB8C46 /* CBAVKViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAVKViewController.m; sourceTree = "<group>"; };
 		1479E7DB1EC0F056008836FA /* CBAFacebookDataBase.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = CBAFacebookDataBase.h; sourceTree = "<group>"; };
 		1479E7DC1EC0F056008836FA /* CBAFacebookDataBase.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = CBAFacebookDataBase.m; sourceTree = "<group>"; };
 		1479E7DE1EC11DA7008836FA /* Bolts.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = Bolts.framework; sourceTree = "<group>"; };
@@ -192,8 +192,8 @@
 			children = (
 				14458C0E1EDC84BA00BC2A4D /* CBAFaceBookViewController.h */,
 				14458C0F1EDC84BA00BC2A4D /* CBAFaceBookViewController.m */,
-				146E56A51ECB5B6800DB8C46 /* VKVMainViewController.h */,
-				146E56A61ECB5B6800DB8C46 /* VKVMainViewController.m */,
+				146E56A51ECB5B6800DB8C46 /* CBAVKViewController.h */,
+				146E56A61ECB5B6800DB8C46 /* CBAVKViewController.m */,
 			);
 			name = "Autorization views";
 			sourceTree = "<group>";
@@ -448,7 +448,7 @@
 				14CD7F1C1EB2533200A460D8 /* CBAContact.m in Sources */,
 				14CD7F301EB26DC100A460D8 /* CBANetworkDataBase.m in Sources */,
 				14458C101EDC84BA00BC2A4D /* CBAFaceBookViewController.m in Sources */,
-				146E56A71ECB5B6800DB8C46 /* VKVMainViewController.m in Sources */,
+				146E56A71ECB5B6800DB8C46 /* CBAVKViewController.m in Sources */,
 				0489EACE1EAFCC5200BB4820 /* DetailInformation.m in Sources */,
 				1479E7DD1EC0F056008836FA /* CBAFacebookDataBase.m in Sources */,
 				14CD7F3D1EB2AF4B00A460D8 /* CBAPathFileJsonDataBase.m in Sources */,

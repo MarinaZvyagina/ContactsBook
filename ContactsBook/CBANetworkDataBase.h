@@ -8,6 +8,7 @@
 
 #import <Foundation/Foundation.h>
 #import "CBADataBaseDriver.h"
+#import "CBAViewManager.h"
 
 @interface CBANetworkDataBase : NSObject <CBADataBaseDriver>
 -(void)getContacts: (id<CBAViewManager>) viewManager;

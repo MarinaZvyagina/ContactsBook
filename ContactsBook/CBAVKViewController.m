@@ -6,20 +6,20 @@
 //  Copyright © 2017 serebryanyy. All rights reserved.
 //
 
-#import "VKVMainViewController.h"
+#import "CBAVKViewController.h"
 #import <WebKit/WebKit.h>
 #import <Security/Security.h>
 
 #define Rgb2UIColor(r, g, b)  [UIColor colorWithRed:((r) / 255.0) green:((g) / 255.0) blue:((b) / 255.0) alpha:1.0]
 
-@interface VKVMainViewController ()<WKNavigationDelegate>
+@interface CBAVKViewController ()<WKNavigationDelegate>
 @property(nonatomic) BOOL authorised;
 @property (strong,nonatomic) WKWebView *webView;
 @property (nonatomic) UINavigationController * navigationRootController;
 @property (nonatomic, strong) id<CBAViewManager> viewManager;
 @end
 
-@implementation VKVMainViewController
+@implementation CBAVKViewController
 
 -(instancetype) initWithViewManager: (id<CBAViewManager>) viewManager {
     self = [super init];

@@ -10,7 +10,6 @@
 #import "CBAJsonDataBase.h"
 #import "CBAContactList.h"
 #import "CBAContact.h"
-#import "VKVMainViewController.h"
 #import "ViewController.h"
 
 @implementation CBANetworkDataBase

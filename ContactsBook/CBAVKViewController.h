@@ -9,6 +9,6 @@
 #import <UIKit/UIKit.h>
 #import "CBAViewManager.h"
 
-@interface VKVMainViewController : UIViewController
+@interface CBAVKViewController : UIViewController
 -(instancetype) initWithViewManager: (id<CBAViewManager>) viewManager;
 @end
