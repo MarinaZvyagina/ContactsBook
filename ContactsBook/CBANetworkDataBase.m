@@ -27,7 +27,6 @@
     NSString* userID = [[NSUserDefaults standardUserDefaults] objectForKey:@"userID"];
     NSString*url = [NSString stringWithFormat:@"https://api.vk.com/method/friends.get?user_id=%@&fields=nickname,contacts,photo_100&%@",userID,accessToken];
     NSURLRequest *nsurlRequest=[NSURLRequest requestWithURL:[NSURL URLWithString:url]];
-    __block NSData *responseData = [NSURLConnection sendSynchronousRequest:nsurlRequest returningResponse:nil error:nil];
     NSURLSessionConfiguration * defaultConfiguration = [NSURLSessionConfiguration defaultSessionConfiguration];
     NSURLSession *session = [NSURLSession sessionWithConfiguration:defaultConfiguration delegate:self delegateQueue:[NSOperationQueue mainQueue]];
 
@@ -35,8 +34,7 @@
                 completionHandler:^(NSData *data,
                                     NSURLResponse *response,
                                     NSError *error) {
-                        responseData = data;
-                    CBAContactList * contacts = [[CBAJsonDataBase new] getContacts:responseData forFields:fields];
+                    CBAContactList * contacts = [[CBAJsonDataBase new] getContacts:data forFields:fields];
                     [viewManager updateContacts:contacts];
                     [viewManager reloadTable];
                 }];
